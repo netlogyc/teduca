@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #fff;
+	font-family: "Open Sans", sans-serif;
+}
+
+.template-container .table-no-border tr,
+.template-container .table-no-border tr td,
+.template-container .table-no-border tr th,
+.template-container .table-no-border h2,
+.template-container .table-no-border h4,
+.template-container .table-no-border p {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: "Open Sans", sans-serif;
+}
+
+.template-container {
+	margin: 15px auto;
+	width: 100%;
+    max-width: 100%;
+	height: auto;
+	display: block;
+	border: 5px dashed #999;
+	box-sizing: border-box;
+}
+
+.template-container .template-inner {
+	padding: 15px 15px;
+}
+
+.template-container .table-no-border {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+}
+
+.template-container .temp-logo {
+	float: left;
+	width: auto;
+	max-width: 20%;
+}
+.template-container .temp-logo.last {
+	float: right;
+}
+.template-container .temp-logo .inner {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	padding: 10px !important;
+}
+.template-container .temp-logo img {
+	margin: 0 auto;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+}
+.template-container .temp-title {
+	float: left;
+	width: 80%;
+	min-width: 80%;
+	padding: 10px !important;
+	box-sizing: border-box;
+	text-align: left;
+	border-bottom: 2px solid #101010 !important;
+}
+.template-container .temp-title h2 {
+	padding: 10px 0px;
+	font-size: 22px;
+	line-height: 1.5;
+	color: #101010;
+	font-style: normal;
+	text-transform: capitalize;
+}
+.template-container .temp-title h4 {
+	padding: 0px 0px 10px 0px;
+	font-size: 18px;
+	line-height: 1.5;
+	color: #101010;
+	font-style: italic;
+	text-transform: capitalize;
+}
+.template-container .temp-title p {
+	font-size: 12px;
+	line-height: 1.5;
+	color: #101010;
+}
+
+.template-container .meta-data {
+	float: left;
+	width: 17%;
+	text-align: left;
+	height: auto;
+	padding: 3px 0px 0px !important;
+	font-size: 14px;
+	line-height: 1.2;
+	color: #101010;
+	font-weight: 700;
+	display: block;
+}
+.template-container .meta-data.width2 {
+	width: 33%;
+}
+.template-container .meta-data.value {
+	font-style: italic;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.template-container .temp-footer {
+	float: left;
+	width: 50%;
+	text-align: left;
+}
+.template-container .temp-footer.last {
+	text-align: right;
+}
+.template-container .temp-footer .inner {
+	padding: 40px 0px 0px;
+}
+.template-container .temp-footer .inner p {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #101010;
+	font-style: normal;
+	font-weight: 700;
+	display: block;
+}

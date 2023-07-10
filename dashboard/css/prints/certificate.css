@@ -1,0 +1,180 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
+    font-family: 'Italianno', cursive;
+}
+
+.template-container .table-no-border tr,
+.template-container .table-no-border tr td,
+.template-container .table-no-border tr th,
+.template-container .table-no-border h2,
+.template-container .table-no-border h4,
+.template-container .table-no-border p {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'Italianno', cursive;
+}
+
+.template-container {
+    margin: 15px auto;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 15px solid transparent;
+    border-image: url('background-border.png') 30 round;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.template-container .template-inner {
+    padding: 10px 15px;
+}
+
+.template-container .table-no-border {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+}
+
+.template-container .temp-logo {
+    float: left;
+    width: 15%;
+    max-width: 15%;
+}
+.template-container .temp-logo.last {
+    float: right;
+}
+.template-container .temp-logo .inner {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    padding: 0px 10px !important;
+}
+.template-container .temp-logo img {
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+.template-container .temp-logo .inner p {
+    padding-top: 10px;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #524e47;
+    font-style: italic;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    word-spacing: 3px;
+}
+.template-container .temp-title {
+    float: left;
+    width: 70%;
+    min-width: 70%;
+    padding: 10px !important;
+    box-sizing: border-box;
+    text-align: center;
+}
+.template-container .temp-title h2 {
+    padding: 10px 0px;
+    font-size: 32px;
+    line-height: 1.5;
+    color: #524e47;
+    font-style: normal;
+    text-transform: capitalize;
+    word-spacing: 10px;
+}
+.template-container .main-title {
+    width: 100%;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+.template-container .main-title h4 {
+    padding: 0px;
+    font-size: 40px;
+    line-height: 1.4;
+    color: #524e47;
+    font-style: italic;
+    text-transform: capitalize;
+    word-spacing: 10px;
+}
+.template-container .meta-data {
+    float: left;
+    width: 50%;
+    text-align: left;
+}
+.template-container .meta-data .inner {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    padding: 20px 20px 0px;
+    font-size: 24px;
+    line-height: 1.2;
+    color: #524e47;
+    font-style: italic;
+    font-weight: 900;
+    display: block;
+    word-spacing: 3px;
+}
+.template-container .meta-data.last {
+    float: right;
+    text-align: right;
+}
+.template-container .temp-body {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0px;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #524e47;
+    font-weight: 400;
+    display: block;
+    text-align: justify;
+    word-spacing: 3px;
+    font-style: normal;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+.template-container .temp-body span {
+    font-weight: 400;
+}
+.template-container .temp-footer {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+.template-container .temp-footer .inner {
+    padding: 60px 0px 0px;
+}
+.template-container .temp-footer .inner p {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #524e47;
+    font-style: normal;
+    font-weight: 900;
+    display: block;
+    word-spacing: 3px;
+}
+
+.inner {
+    word-break: break-word !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+}
