@@ -180,8 +180,8 @@ class UserController extends Controller
             'designation' => 'required',
             'gender' => 'required',
             'dob' => 'required|date',
-            'joining_date' => 'required|date',
-            'ending_date' => 'nullable|date|after_or_equal:joining_date',
+            //'joining_date' => 'nullable|date',
+            //'ending_date' => 'nullable|date|after_or_equal:joining_date',
             'phone' => 'required',
             'basic_salary' => 'required|numeric',
             'contract_type' => 'required',
@@ -206,18 +206,18 @@ class UserController extends Controller
             $user->designation_id = $request->designation;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
-            $user->father_name = $request->father_name;
-            $user->mother_name = $request->mother_name;
+            // $user->father_name = $request->father_name;
+            // $user->mother_name = $request->mother_name;
 
             $user->email = $request->email;
             $user->password = Hash::make($password);
             $user->password_text = Crypt::encryptString($password);
             $user->gender = $request->gender;
             $user->dob = $request->dob;
-            $user->joining_date = $request->joining_date;
-            $user->ending_date = $request->ending_date;
+            //$user->joining_date = $request->joining_date;
+            //$user->ending_date = $request->ending_date;
             $user->phone = $request->phone;
-            $user->emergency_phone = $request->emergency_phone;
+            // $user->emergency_phone = $request->emergency_phone;
 
             $user->religion = $request->religion;
             $user->caste = $request->caste;
@@ -236,7 +236,7 @@ class UserController extends Controller
             $user->permanent_province = $request->permanent_province;
             $user->permanent_district = $request->permanent_district;
             $user->permanent_village = $request->permanent_village;
-            $user->permanent_address = $request->permanent_address;
+            // $user->permanent_address = $request->permanent_address;
 
             $user->education_level = $request->education_level;
             $user->graduation_academy = $request->graduation_academy;
@@ -264,6 +264,19 @@ class UserController extends Controller
             $user->joining_letter = $this->uploadMedia($request, 'joining_letter', $this->path);
             $user->status = '1';
             $user->created_by = Auth::guard('web')->user()->id;
+
+
+            $user->type_ide = $request->type_ide;
+            $user->second_last_name = $request->second_last_name;
+            $user->second_first_name = $request->second_first_name;
+            $user->expedition_date = $request->expedition_date;
+            $user->place_of_birth = $request->place_of_birth;
+            $user->expiration_date = $request->expiration_date;
+            $user->economic_stratum = $request->economic_stratum;
+            $user->institutional_e_mail = $request->institutional_e_mail;
+            $user->eps = $request->eps;
+            $user->habeas_data = $request->habeas_data;
+
             $user->save();
 
 
@@ -404,8 +417,8 @@ class UserController extends Controller
             'designation' => 'required',
             'gender' => 'required',
             'dob' => 'required|date',
-            'joining_date' => 'required|date',
-            'ending_date' => 'nullable|date|after_or_equal:joining_date',
+            //'joining_date' => 'required|date',
+            //'ending_date' => 'nullable|date|after_or_equal:joining_date',
             'phone' => 'required',
             'basic_salary' => 'required|numeric',
             'contract_type' => 'required',
@@ -428,16 +441,16 @@ class UserController extends Controller
             $user->designation_id = $request->designation;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
-            $user->father_name = $request->father_name;
-            $user->mother_name = $request->mother_name;
+            // $user->father_name = $request->father_name;
+            // $user->mother_name = $request->mother_name;
 
             $user->email = $request->email;
             $user->gender = $request->gender;
             $user->dob = $request->dob;
-            $user->joining_date = $request->joining_date;
-            $user->ending_date = $request->ending_date;
+            //$user->joining_date = $request->joining_date;
+            //$user->ending_date = $request->ending_date;
             $user->phone = $request->phone;
-            $user->emergency_phone = $request->emergency_phone;
+            // $user->emergency_phone = $request->emergency_phone;
 
             $user->religion = $request->religion;
             $user->caste = $request->caste;
@@ -456,7 +469,7 @@ class UserController extends Controller
             $user->permanent_province = $request->permanent_province;
             $user->permanent_district = $request->permanent_district;
             $user->permanent_village = $request->permanent_village;
-            $user->permanent_address = $request->permanent_address;
+            // $user->permanent_address = $request->permanent_address;
 
             $user->education_level = $request->education_level;
             $user->graduation_academy = $request->graduation_academy;
@@ -483,6 +496,19 @@ class UserController extends Controller
             $user->resume = $this->updateMultiMedia($request, 'resume', $this->path, $user, 'resume');
             $user->joining_letter = $this->updateMultiMedia($request, 'joining_letter', $this->path, $user, 'joining_letter');
             $user->updated_by = Auth::guard('web')->user()->id;
+
+
+            $user->type_ide = $request->type_ide;
+            $user->second_last_name = $request->second_last_name;
+            $user->second_first_name = $request->second_first_name;
+            $user->expedition_date = $request->expedition_date;
+            $user->place_of_birth = $request->place_of_birth;
+            $user->expiration_date = $request->expiration_date;
+            $user->economic_stratum = $request->economic_stratum;
+            $user->institutional_e_mail = $request->institutional_e_mail;
+            $user->eps = $request->eps;
+            $user->habeas_data = $request->habeas_data;
+
             $user->save();
 
 

@@ -36,6 +36,32 @@
                             <div class="row">
                             <div class="col-md-12">
                             <fieldset class="row scheduler-border">
+
+                            {{-- 1 --}}
+                            <div class="form-group col-md-4">
+                                <label for="type_ide ">{{ __('type_ide  ') }} <span>*</span></label>
+                                <select class="form-control" name="type_ide " id="type_ide " required>
+                                    <option value="">{{ __('select') }}</option>
+                                    <option value="1"
+                                        @if( $row->type_ide == 1 ) selected @endif>
+                                        Cédula de Ciudadania</option>
+                                    <option value="2"
+                                        @if( $row->type_ide == 2 ) selected @endif>
+                                        Cédula de extranjería</option>
+                                    <option value="3"
+                                        @if( $row->type_ide == 3 ) selected @endif>
+                                        Pasaporte</option>
+                                    <option value="3"
+                                        @if( $row->type_ide == 4 ) selected @endif>
+                                        Tarjeta de identidad</option>
+                                </select>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('type_ide') }}
+                                </div>
+                            </div>
+                            
+                            {{-- 2--}}
                             <div class="form-group col-md-4">
                                 <label for="staff_id">{{ __('field_staff_id') }} <span>*</span></label>
                                 <input type="text" class="form-control" name="staff_id" id="staff_id" value="{{ $row->staff_id }}" required>
@@ -45,15 +71,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-4">
-                                <label for="first_name">{{ __('field_first_name') }} <span>*</span></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" value="{{ $row->first_name }}" required>
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_first_name') }}
-                                </div>
-                            </div>
-
+                            {{-- 3 --}}
                             <div class="form-group col-md-4">
                                 <label for="last_name">{{ __('field_last_name') }} <span>*</span></label>
                                 <input type="text" class="form-control" name="last_name" id="last_name" value="{{ $row->last_name }}" required>
@@ -63,25 +81,97 @@
                                 </div>
                             </div>
 
+                            {{-- 4 --}}
                             <div class="form-group col-md-4">
-                                <label for="father_name">{{ __('field_father_name') }}</label>
-                                <input type="text" class="form-control" name="father_name" id="father_name" value="{{ $row->father_name }}">
+                                <label for="second_last_name ">{{ __('second_last_name ') }}
+                                    <span>*</span></label>
+                                <input type="text" class="form-control" name="second_last_name "
+                                    id="second_last_name " value="{{ $row->second_last_name }}"
+                                    required>
 
                                 <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_father_name') }}
+                                    {{ __('required_field') }} {{ __('second_last_name ') }}
                                 </div>
                             </div>
 
+                            {{-- 5 --}}
                             <div class="form-group col-md-4">
-                                <label for="mother_name">{{ __('field_mother_name') }}</label>
-                                <input type="text" class="form-control" name="mother_name" id="mother_name" value="{{ $row->mother_name }}">
+                                <label for="first_name">{{ __('field_first_name') }} <span>*</span></label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" value="{{ $row->first_name }}" required>
 
                                 <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_mother_name') }}
+                                  {{ __('required_field') }} {{ __('field_first_name') }}
                                 </div>
                             </div>
 
+                            {{-- 6 --}}
                             <div class="form-group col-md-4">
+                                <label for="second_first_name ">{{ __('second_first_name ') }}
+                                    <span>*</span></label>
+                                <input type="text" class="form-control" name="second_first_name "
+                                    id="second_first_name " value="{{ $row->second_first_name }}"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('second_first_name ') }}
+                                </div>
+                            </div>
+
+                            {{-- 7 --}}
+                            <div class="form-group col-md-4">
+                                <label for="expedition_date ">{{ __('expedition_date ') }}
+                                    <span>*</span></label>
+                                <input type="date" class="form-control date" name="expedition_date "
+                                    id="expedition_date " value="{{ $row->expedition_date }}"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('expedition_date ') }}
+                                </div>
+                            </div>
+
+                            {{-- 8 --}}
+                            <div class="form-group col-md-4">
+                                <label for="dob">{{ __('field_dob') }} <span>*</span></label>
+                                <input type="date" class="form-control date" name="dob" id="dob" value="{{ $row->dob }}" required>
+
+                                <div class="invalid-feedback">
+                                  {{ __('required_field') }} {{ __('field_dob') }}
+                                </div>
+                            </div>
+
+                            {{-- 9 --}}
+                            <div class="form-group col-md-4">
+                                <label for="place_of_birth  ">{{ __('place_of_birth') }}
+                                    <span>*</span></label>
+                                <input type="text" class="form-control" name="place_of_birth"
+                                    id="place_of_birth " value="{{ $row->place_of_birth }}"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('place_of_birth  ') }}
+                                </div>
+                            </div>
+
+                            {{-- 10 --}}
+                            <div class="form-group col-md-6">
+                                <label for="marital_status">{{ __('field_marital_status') }}</label>
+                                <select class="form-control" name="marital_status" id="marital_status">
+                                    <option value="">{{ __('select') }}</option>
+                                    <option value="1" @if( $row->marital_status == 1 ) selected @endif>{{ __('marital_status_single') }}</option>
+                                    <option value="2" @if( $row->marital_status == 2 ) selected @endif>{{ __('marital_status_married') }}</option>
+                                    <option value="3" @if( $row->marital_status == 3 ) selected @endif>{{ __('marital_status_widowed') }}</option>
+                                    <option value="4" @if( $row->marital_status == 4 ) selected @endif>{{ __('marital_status_divorced') }}</option>
+                                    <option value="5" @if( $row->marital_status == 5 ) selected @endif>{{ __('marital_status_other') }}</option>
+                                </select>
+
+                                <div class="invalid-feedback">
+                                  {{ __('required_field') }} {{ __('field_marital_status') }}
+                                </div>
+                            </div>
+
+                            {{-- 11 --}}
+                            <div class="form-group col-md-6">
                                 <label for="gender">{{ __('field_gender') }} <span>*</span></label>
                                 <select class="form-control" name="gender" id="gender" required>
                                     <option value="">{{ __('select') }}</option>
@@ -92,6 +182,41 @@
 
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_gender') }}
+                                </div>
+                            </div>
+
+                            {{-- 12 --}}
+                            <div class="form-group col-md-6">
+                                <label for="nationality">{{ __('field_nationality') }}
+                                    <span>*</span></label>
+                                <input type="text" class="form-control" name="nationality"
+                                    id="nationality" value="{{ $row->nationality }}" required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('field_nationality') }}
+                                </div>
+                            </div>
+
+                            {{-- 13 --}}
+                            <div class="form-group col-md-6">
+                                <label for="passport_no">{{ __('field_passport_no') }}</label>
+                                <input type="text" class="form-control" name="passport_no" id="passport_no" value="{{ $row->passport_no }}">
+
+                                <div class="invalid-feedback">
+                                  {{ __('required_field') }} {{ __('field_passport_no') }}
+                                </div>
+                            </div>
+
+                            {{-- 14 --}}
+                            <div class="form-group col-md-4">
+                                <label for="expiration_date">{{ __('expiration_date') }}
+                                    <span>*</span></label>
+                                <input type="date" class="form-control date"
+                                    name="expiration_date" id="expiration_date"
+                                    value="{{ $row->expiration_date }}" required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('expiration_date') }}
                                 </div>
                             </div>
 
@@ -141,42 +266,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-4">
-                                <label for="dob">{{ __('field_dob') }} <span>*</span></label>
-                                <input type="date" class="form-control date" name="dob" id="dob" value="{{ $row->dob }}" required>
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_dob') }}
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label for="joining_date">{{ __('field_joining_date') }} <span>*</span></label>
-                                <input type="date" class="form-control date" name="joining_date" id="joining_date" value="{{ $row->joining_date }}" required>
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_joining_date') }}
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label for="ending_date">{{ __('field_ending_date') }}</label>
-                                <input type="date" class="form-control date" name="ending_date" id="ending_date" value="{{ $row->ending_date }}">
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_ending_date') }}
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-4">
-                                <label for="email">{{ __('field_email') }} <span>*</span></label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_email') }}
-                                </div>
-                            </div>
-
+                            {{-- 20 --}}
                             <div class="form-group col-md-4">
                                 <label for="phone">{{ __('field_phone') }} <span>*</span></label>
                                 <input type="text" class="form-control" name="phone" id="phone" value="{{ $row->phone }}" required>
@@ -186,31 +276,78 @@
                                 </div>
                             </div>
 
+                            {{-- 21 --}}
                             <div class="form-group col-md-4">
-                                <label for="emergency_phone">{{ __('field_emergency_phone') }}</label>
-                                <input type="text" class="form-control" name="emergency_phone" id="emergency_phone" value="{{ $row->emergency_phone }}">
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_emergency_phone') }}
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="marital_status">{{ __('field_marital_status') }}</label>
-                                <select class="form-control" name="marital_status" id="marital_status">
+                                <label for="economic_stratum ">{{ __('economic_stratum ') }}</label>
+                                <select class="form-control" name="economic_stratum "
+                                    id="economic_stratum ">
                                     <option value="">{{ __('select') }}</option>
-                                    <option value="1" @if( $row->marital_status == 1 ) selected @endif>{{ __('marital_status_single') }}</option>
-                                    <option value="2" @if( $row->marital_status == 2 ) selected @endif>{{ __('marital_status_married') }}</option>
-                                    <option value="3" @if( $row->marital_status == 3 ) selected @endif>{{ __('marital_status_widowed') }}</option>
-                                    <option value="4" @if( $row->marital_status == 4 ) selected @endif>{{ __('marital_status_divorced') }}</option>
-                                    <option value="5" @if( $row->marital_status == 5 ) selected @endif>{{ __('marital_status_other') }}</option>
+                                    <option value="1"
+                                        @if( $row->economic_stratum == 1 ) selected @endif>
+                                        {{ __('1') }}</option>
+                                    <option value="2"
+                                        @if( $row->economic_stratum == 2 ) selected @endif>
+                                        {{ __('2') }}</option>
+                                    <option value="3"
+                                        @if( $row->economic_stratum == 3 ) selected @endif>
+                                        {{ __('3') }}</option>
+                                    <option value="4"
+                                        @if( $row->economic_stratum == 4 ) selected @endif>
+                                        {{ __('4') }}</option>
+                                    <option value="5"
+                                        @if( $row->economic_stratum == 5 ) selected @endif>
+                                        {{ __('5') }}</option>
+                                    <option value="6"
+                                        @if( $row->economic_stratum == 6 ) selected @endif>
+                                        {{ __('6') }}</option>
+                                    <option value="7"
+                                        @if( $row->economic_stratum == 7 ) selected @endif>
+                                        {{ __('No aplica') }}</option>
+
                                 </select>
 
                                 <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_marital_status') }}
+                                    {{ __('required_field') }} {{ __('economic_stratum ') }}
                                 </div>
                             </div>
 
+                            {{-- 22 --}}
+                            <div class="form-group col-md-6">
+                                <label for="institutional_e_mail">{{ __('institutional_e_mail') }}
+                                    <span>*</span></label>
+                                <input type="email" class="form-control"
+                                    name="institutional_e_mail " id="institutional_e_mail"
+                                    value="{{ $row->institutional_e_mail }}" required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('institutional_e_mail ') }}
+                                </div>
+                            </div>
+
+                            {{-- 23 --}}
+                            <div class="form-group col-md-6">
+                                <label for="email">{{ __('field_email') }} <span>*</span></label>
+                                <input type="email" class="form-control" name="email" id="email" value="{{ $row->email }}" required>
+
+                                <div class="invalid-feedback">
+                                  {{ __('required_field') }} {{ __('field_email') }}
+                                </div>
+                            </div>
+
+
+                            {{-- 24 --}}
+                            <div class="form-group col-md-6">
+                                <label for="eps">{{ __('eps') }} <span>*</span></label>
+                                <input type="text" class="form-control" name="eps"
+                                    id="eps" value="{{ $row->eps }}" required>
+
+                                <div class="invalid-feedback">
+                                    {{ __('required_field') }} {{ __('eps') }}
+                                </div>
+                            </div>
+
+                            
+                            {{-- 25 --}}
                             <div class="form-group col-md-6">
                                 <label for="blood_group">{{ __('field_blood_group') }}</label>
                                 <select class="form-control" name="blood_group" id="blood_group">
@@ -230,29 +367,22 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6">
+                            {{-- <div class="form-group col-md-6">
                                 <label for="national_id">{{ __('field_national_id') }}</label>
                                 <input type="text" class="form-control" name="national_id" id="national_id" value="{{ $row->national_id }}">
 
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_national_id') }}
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group col-md-6">
-                                <label for="passport_no">{{ __('field_passport_no') }}</label>
-                                <input type="text" class="form-control" name="passport_no" id="passport_no" value="{{ $row->passport_no }}">
-
-                                <div class="invalid-feedback">
-                                  {{ __('required_field') }} {{ __('field_passport_no') }}
-                                </div>
-                            </div>
+                            
                             </fieldset>
                             </div>
                             </div>
 
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <fieldset class="row scheduler-border">
                                 <legend>{{ __('field_present') }} {{ __('field_address') }}</legend>
                                 @include('common.inc.present_province')
@@ -260,23 +390,6 @@
                                 <div class="form-group col-md-12">
                                     <label for="present_address">{{ __('field_address') }}</label>
                                     <input type="text" class="form-control" name="present_address" id="present_address" value="{{ $row->present_address }}">
-
-                                    <div class="invalid-feedback">
-                                      {{ __('required_field') }} {{ __('field_address') }}
-                                    </div>
-                                </div>
-                                </fieldset>
-                              </div>
-
-                              <div class="col-md-6">
-                                <fieldset class="row scheduler-border">
-                                <legend>{{ __('field_permanent') }} {{ __('field_address') }}</legend>
-
-                                @include('common.inc.permanent_province')
-
-                                <div class="form-group col-md-12">
-                                    <label for="permanent_address">{{ __('field_address') }}</label>
-                                    <input type="text" class="form-control" name="permanent_address" id="permanent_address" value="{{ $row->permanent_address }}">
 
                                     <div class="invalid-feedback">
                                       {{ __('required_field') }} {{ __('field_address') }}

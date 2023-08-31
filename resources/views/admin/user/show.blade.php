@@ -18,11 +18,14 @@
                       @endif
 
                   <div class="card-header">
-                    <h5 class="card-title">{{ $row->first_name }} {{ $row->last_name }}</h5>
+                    <h5 class="card-title">{{ $row->first_name }} {{$row->second_last_name }} {{ $row->last_name }} {{$row->second_first_name }}</h5>
                   </div>
                   <ul class="list-group list-group-flush">
                     @if(isset($row->staff_id))
+                    <li class="list-group-item"><mark class="text-primary">{{ __('Tipo de identificación') }}</mark> : {{ $row->type_ide }}</li>
                     <li class="list-group-item"><mark class="text-primary">{{ __('field_staff_id') }}</mark> : #{{ $row->staff_id }}</li>
+                    <li class="list-group-item"><mark class="text-primary">{{ __('Fecha de expedición del documento') }}</mark> : {{ $row->expedition_date }}</li>
+                    
                     @endif
 
                     <li class="list-group-item"><mark class="text-primary">{{ __('field_department') }}</mark> : {{ $row->department->title ?? '' }}</li>
@@ -32,8 +35,15 @@
                             {{ $role->name }}
                         @endforeach
                     </li>
+                    
+                    <li class="list-group-item"><mark class="text-primary">{{ __('Lugar de nacimiento') }}</mark> : {{ $row->place_of_birth  }}</li>
                     <li class="list-group-item"><mark class="text-primary">{{ __('field_phone') }}</mark> : {{ $row->phone }}</li>
+
+                    <li class="list-group-item"><mark class="text-primary">{{ __('Estrato económico') }}</mark> : {{ $row->economic_stratum  }}</li>
+                    <li class="list-group-item"><mark class="text-primary">{{ __('EPS') }}</mark> : {{ $row->eps }}</li>
+                    
                     <li class="list-group-item"><mark class="text-primary">{{ __('field_email') }}</mark> : {{ $row->email }}</li>
+                    <li class="list-group-item"><mark class="text-primary">{{ __('Correo electrónico Institucional') }}</mark> : {{ $row->institutional_e_mail  }}</li>
                   </ul>
                 </div>
             </div>
@@ -44,8 +54,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <fieldset class="row gx-2 scheduler-border">
-                                    <p><mark class="text-primary">{{ __('field_father_name') }}:</mark> {{ $row->father_name }}</p><hr/>
-                                    <p><mark class="text-primary">{{ __('field_mother_name') }}:</mark> {{ $row->mother_name }}</p><hr/>
+                                   
 
                                     <p><mark class="text-primary">{{ __('field_gender') }}:</mark> 
                                         @if( $row->gender == 1 )
@@ -65,7 +74,7 @@
                                         @endif
                                     </p><hr/>
 
-                                    <p><mark class="text-primary">{{ __('field_emergency_phone') }}:</mark> {{ $row->emergency_phone }}</p><hr/>
+                                   
 
                                     <p><mark class="text-primary">{{ __('field_marital_status') }}:</mark> 
                                         @if( $row->marital_status == 1 )
@@ -101,27 +110,13 @@
                                         @endif
                                     </p><hr/>
 
-                                    <p><mark class="text-primary">{{ __('field_joining_date') }}:</mark> 
-                                        @if(isset($setting->date_format))
-                                        {{ date($setting->date_format, strtotime($row->joining_date)) }}
-                                        @else
-                                        {{ date("Y-m-d", strtotime($row->joining_date)) }}
-                                        @endif
-                                    </p><hr/>
-                                    @if(isset($row->ending_date))
-                                    <p><mark class="text-primary">{{ __('field_ending_date') }}:</mark> 
-                                        @if(isset($setting->date_format))
-                                        {{ date($setting->date_format, strtotime($row->ending_date)) }}
-                                        @else
-                                        {{ date("Y-m-d", strtotime($row->ending_date)) }}
-                                        @endif
-                                    </p><hr/>
-                                    @endif
+                                 
                                     </fieldset>
 
                                     <fieldset class="row gx-2 scheduler-border">
                                     <p><mark class="text-primary">{{ __('field_national_id') }}:</mark> {{ $row->national_id }}</p><hr/>
                                     <p><mark class="text-primary">{{ __('field_passport_no') }}:</mark> {{ $row->passport_no }}</p>
+                                    <p><mark class="text-primary">{{ __('Fecha de vencimiento') }}:</mark> {{ $row->expiration_date }}</p>
                                     </fieldset>
                                 </div>
                                 <div class="col-md-6">
@@ -132,12 +127,12 @@
                                     <p><mark class="text-primary">{{ __('field_address') }}:</mark> {{ $row->present_address }}</p>
                                     </fieldset>
 
-                                    <fieldset class="row gx-2 scheduler-border">
+                                    {{--<fieldset class="row gx-2 scheduler-border">
                                     <legend>{{ __('field_permanent') }} {{ __('field_address') }}</legend>
                                     <p><mark class="text-primary">{{ __('field_province') }}:</mark> {{ $row->permanentProvince->title ?? '' }}</p><hr/>
                                     <p><mark class="text-primary">{{ __('field_district') }}:</mark> {{ $row->permanentDistrict->title ?? '' }}</p><hr/>
-                                    <p><mark class="text-primary">{{ __('field_address') }}:</mark> {{ $row->permanent_address }}</p>
-                                    </fieldset>
+                                     <p><mark class="text-primary">{{ __('field_address') }}:</mark> {{ $row->permanent_address }}</p> 
+                                    </fieldset>--}}
 
                                     <fieldset class="row gx-2 scheduler-border">
                                     <p><mark class="text-primary">{{ __('field_hostel') }}:</mark> {{ $row->hostelRoom->room->hostel->name ?? '' }}</p><hr/>
