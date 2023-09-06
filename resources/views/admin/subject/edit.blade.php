@@ -54,7 +54,7 @@
                                         <select class="form-control" name="field_sufficiency" id="class_type" required>
                                             <option value="">{{ __('select') }}</option>
                                             <option value="SI" @if ($row->field_sufficiency == 'SI') selected @endif>{{ __('SI') }}</option>
-                                            <option value="NO" @if ($row->field_sufficiency == 'SI') selected @endif>{{ __('NO') }}</option>
+                                            <option value="NO" @if ($row->field_sufficiency == 'NO') selected @endif>{{ __('NO') }}</option>
                                         </select>
                                         <div class="invalid-feedback">
                                             {{ __('required_field') }} {{ __('field_sufficiency') }}

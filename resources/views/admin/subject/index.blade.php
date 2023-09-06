@@ -153,11 +153,15 @@
                                         <td>{{ $row->theoretical_unit }}</td>
                                         <td>{{ $row->practical_unit }}</td>
 
-                                        <td>{{ $row->minimum_note }}</td>
-                                        <td>{{ $row->maximum_note }}</td>
+                                        <td>{{ substr($row->minimum_note,0,3) }}</td>
+                                        <td>{{ substr($row->maximum_note,0,3) }}</td>
+
+                                        {{-- <td>{{ format_number($row->minimum_note) }}</td>
+                                        <td>{{ format_number($row->maximum_note) }}</td> --}}
+
                                         <td>{{ $row->passing_grade }}</td>
                                         <td>{{ $row->homologable }}</td>
-                                        <td>{{ $row->minimum_grade_approved }}</td>
+                                        <td>{{substr($row->minimum_grade_approved,0,3) }}</td>
                                         <td>{{ $row->field_start }}</td>
                                         <td>{{ $row->field_ends }}</td>
                                         {{-- <td>{{ $row->Qualification }}</td> --}}

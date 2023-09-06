@@ -43,7 +43,7 @@
 
                                                 {{-- 1 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="type_ide ">{{ __('type_ide  ') }} <span>*</span></label>
+                                                    <label for="type_ide ">{{ __('Tipo de identificación') }} <span>*</span></label>
                                                     <select class="form-control" name="type_ide " id="type_ide " required>
                                                         <option value="">{{ __('select') }}</option>
                                                         <option value="1"
@@ -67,7 +67,7 @@
 
                                                 {{-- 2 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="staff_id">{{ __('field_staff_id') }} <span>*</span></label>
+                                                    <label for="staff_id">{{ __('Número de identificación') }} <span>*</span></label>
                                                     <input type="text" class="form-control" name="staff_id"
                                                         id="staff_id" value="{{ old('staff_id') }}" required>
 
@@ -78,7 +78,7 @@
 
                                                 {{-- 3 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="last_name">{{ __('field_last_name') }}
+                                                    <label for="last_name">{{ __('Primer apellido') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="last_name"
                                                         id="last_name" value="{{ old('last_name') }}" required>
@@ -90,7 +90,7 @@
 
                                                 {{-- 4 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="second_last_name ">{{ __('second_last_name ') }}
+                                                    <label for="second_last_name ">{{ __('Segundo apellido') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="second_last_name "
                                                         id="second_last_name " value="{{ old('second_last_name ') }}"
@@ -103,7 +103,7 @@
 
                                                 {{-- 5 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="first_name">{{ __('field_first_name') }}
+                                                    <label for="first_name">{{ __('Primer nombre') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="first_name"
                                                         id="first_name" value="{{ old('first_name') }}" required>
@@ -115,7 +115,7 @@
 
                                                 {{-- 6 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="second_first_name ">{{ __('second_first_name ') }}
+                                                    <label for="second_first_name ">{{ __('Segundo nombre') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="second_first_name "
                                                         id="second_first_name " value="{{ old('second_first_name ') }}"
@@ -128,7 +128,7 @@
 
                                                 {{-- 7 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="expedition_date ">{{ __('expedition_date ') }}
+                                                    <label for="expedition_date ">{{ __('Fecha de expedición del documento') }}
                                                         <span>*</span></label>
                                                     <input type="date" class="form-control date" name="expedition_date "
                                                         id="expedition_date " value="{{ old('expedition_date ') }}"
@@ -152,7 +152,7 @@
 
                                                 {{-- 9 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="place_of_birth  ">{{ __('place_of_birth') }}
+                                                    <label for="place_of_birth  ">{{ __('Lugar de nacimiento') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="place_of_birth"
                                                         id="place_of_birth" value="{{ old('place_of_birth') }}"
@@ -237,7 +237,7 @@
 
                                                 {{-- 14 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="expiration_date ">{{ __('expiration_date') }}
+                                                    <label for="expiration_date ">{{ __('Fehcha de vencimiento') }}
                                                         <span>*</span></label>
                                                     <input type="date" class="form-control date"
                                                         name="expiration_date" id="expiration_date"
@@ -313,7 +313,7 @@
 
                                                 {{-- 21 --}}
                                                 <div class="form-group col-md-4">
-                                                    <label for="economic_stratum ">{{ __('economic_stratum ') }}</label>
+                                                    <label for="economic_stratum ">{{ __('Estrato económico') }}</label>
                                                     <select class="form-control" name="economic_stratum "
                                                         id="economic_stratum ">
                                                         <option value="">{{ __('select') }}</option>
@@ -348,7 +348,7 @@
 
                                                 {{-- 22 --}}
                                                 <div class="form-group col-md-6">
-                                                    <label for="email">{{ __('institutional_e_mail ') }}
+                                                    <label for="email">{{ __('Correo electronico institucional') }}
                                                         <span>*</span></label>
                                                     <input type="email" class="form-control"
                                                         name="institutional_e_mail " id="institutional_e_mail "
@@ -372,7 +372,7 @@
 
                                                 {{-- 24 --}}
                                                 <div class="form-group col-md-6">
-                                                    <label for="eps ">{{ __('eps ') }} <span>*</span></label>
+                                                    <label for="eps ">{{ __('EPS') }} <span>*</span></label>
                                                     <input type="text" class="form-control" name="eps "
                                                         id="eps " value="{{ old('eps ') }}" required>
 
