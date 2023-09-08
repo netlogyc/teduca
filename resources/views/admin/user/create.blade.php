@@ -42,8 +42,9 @@
                                             <fieldset class="row scheduler-border">
 
                                                 {{-- 1 --}}
-                                                <div class="form-group col-md-4">
-                                                    <label for="type_ide ">{{ __('Tipo de identificación') }} <span>*</span></label>
+                                                <div class="form-group col-md-6">
+                                                    <label for="type_ide ">{{ __('Tipo de identificación') }}
+                                                        <span>*</span></label>
                                                     <select class="form-control" name="type_ide " id="type_ide " required>
                                                         <option value="">{{ __('select') }}</option>
                                                         <option value="1"
@@ -66,8 +67,9 @@
                                                 </div>
 
                                                 {{-- 2 --}}
-                                                <div class="form-group col-md-4">
-                                                    <label for="staff_id">{{ __('Número de identificación') }} <span>*</span></label>
+                                                <div class="form-group col-md-6">
+                                                    <label for="staff_id">{{ __('Número de identificación') }}
+                                                        <span>*</span></label>
                                                     <input type="text" class="form-control" name="staff_id"
                                                         id="staff_id" value="{{ old('staff_id') }}" required>
 
@@ -77,7 +79,7 @@
                                                 </div>
 
                                                 {{-- 3 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="last_name">{{ __('Primer apellido') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="last_name"
@@ -89,9 +91,9 @@
                                                 </div>
 
                                                 {{-- 4 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="second_last_name ">{{ __('Segundo apellido') }}
-                                                        <span>*</span></label>
+                                                        </label>
                                                     <input type="text" class="form-control" name="second_last_name "
                                                         id="second_last_name " value="{{ old('second_last_name ') }}"
                                                         required>
@@ -102,7 +104,7 @@
                                                 </div>
 
                                                 {{-- 5 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="first_name">{{ __('Primer nombre') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="first_name"
@@ -114,9 +116,9 @@
                                                 </div>
 
                                                 {{-- 6 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="second_first_name ">{{ __('Segundo nombre') }}
-                                                        <span>*</span></label>
+                                                        </label>
                                                     <input type="text" class="form-control" name="second_first_name "
                                                         id="second_first_name " value="{{ old('second_first_name ') }}"
                                                         required>
@@ -127,8 +129,9 @@
                                                 </div>
 
                                                 {{-- 7 --}}
-                                                <div class="form-group col-md-4">
-                                                    <label for="expedition_date ">{{ __('Fecha de expedición del documento') }}
+                                                <div class="form-group col-md-6">
+                                                    <label
+                                                        for="expedition_date ">{{ __('Fecha de expedición del documento') }}
                                                         <span>*</span></label>
                                                     <input type="date" class="form-control date" name="expedition_date "
                                                         id="expedition_date " value="{{ old('expedition_date ') }}"
@@ -140,7 +143,7 @@
                                                 </div>
 
                                                 {{-- 8 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="dob">{{ __('field_dob') }} <span>*</span></label>
                                                     <input type="date" class="form-control date" name="dob"
                                                         id="dob" value="{{ old('dob') }}" required>
@@ -151,21 +154,35 @@
                                                 </div>
 
                                                 {{-- 9 --}}
-                                                <div class="form-group col-md-4">
-                                                    <label for="place_of_birth  ">{{ __('Lugar de nacimiento') }}
+                                                <div class="form-group col-md-6">
+                                                    <label for="departamento">{{ __('Departamento de nacimiento') }}
                                                         <span>*</span></label>
-                                                    <input type="text" class="form-control" name="place_of_birth"
-                                                        id="place_of_birth" value="{{ old('place_of_birth') }}"
-                                                        required>
+                                                    <select class="form-control" name="place_of_birth" id="departamentos" required>
+                                                        <option value="">{{ __('select') }}</option>
+                                                    </select>
 
                                                     <div class="invalid-feedback">
                                                         {{ __('required_field') }} {{ __('place_of_birth') }}
                                                     </div>
                                                 </div>
 
+                                                {{-- 9.5 --}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="city">{{ __('Ciudad o municipio de nacimiento') }}
+                                                        <span>*</span></label>
+                                                    <select class="form-control" name="town_of_birth" id="cities" required>
+                                                        <option value="">{{ __('select') }}</option>
+                                                    </select>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('place_of_birth') }}
+                                                    </div>
+                                                </div>
+
+
                                                 {{-- 10 --}}
                                                 <div class="form-group col-md-6">
-                                                    <label for="marital_status">{{ __('field_marital_status') }}</label>
+                                                    <label for="marital_status">{{ __('field_marital_status') }}<span>*</span></label>
                                                     <select class="form-control" name="marital_status"
                                                         id="marital_status">
                                                         <option value="">{{ __('select') }}</option>
@@ -216,8 +233,9 @@
                                                 <div class="form-group col-md-6">
                                                     <label for="nationality">{{ __('field_nationality') }}
                                                         <span>*</span></label>
-                                                    <input type="text" class="form-control" name="nationality"
-                                                        id="nationality" value="{{ old('nationality') }}" required>
+                                                        <select class="form-control" name="nationality" id="nationality" required>
+                                                            <option value="">{{ __('select') }}</option>
+                                                        </select >
 
                                                     <div class="invalid-feedback">
                                                         {{ __('required_field') }} {{ __('field_nationality') }}
@@ -236,7 +254,7 @@
                                                 </div>
 
                                                 {{-- 14 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="expiration_date ">{{ __('Fehcha de vencimiento') }}
                                                         <span>*</span></label>
                                                     <input type="date" class="form-control date"
@@ -248,7 +266,72 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group col-md-4">
+                                                {{--15--}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="place_of_residence ">{{ __('Lugar de residencia') }}
+                                                        <span>*</span></label>
+                                                    <input type="text" class="form-control"
+                                                        name="place_of_residence" id="place_of_residence"
+                                                        value="{{ old('place_of_residence') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('place_of_residence ') }}
+                                                    </div>
+                                                </div>
+
+                                                {{--16--}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="residence_address ">{{ __('Dirección de residencia') }}
+                                                        <span>*</span></label>
+                                                    <input type="text" class="form-control"
+                                                        name="residence_address" id="residence_address"
+                                                        value="{{ old('residence_address') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('residence_address ') }}
+                                                    </div>
+                                                </div>
+
+                                                {{--17--}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="neighborhood ">{{ __('Barrio') }}
+                                                        <span>*</span></label>
+                                                    <input type="text" class="form-control"
+                                                        name="neighborhood" id="neighborhood"
+                                                        value="{{ old('neighborhood') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('neighborhood ') }}
+                                                    </div>
+                                                </div>
+
+                                                {{--18--}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="country_code ">{{ __('Código de país') }}
+                                                        <span>*</span></label>
+                                                    <input type="text" class="form-control"
+                                                        name="country_code" id="country_code"
+                                                        value="{{ old('country_code') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('country_code ') }}
+                                                    </div>
+                                                </div>
+
+                                                {{--19--}}
+                                                <div class="form-group col-md-6">
+                                                    <label for="area_code ">{{ __('Código de área') }}
+                                                        <span>*</span></label>
+                                                    <input type="text" class="form-control"
+                                                        name="area_code" id="area_code"
+                                                        value="{{ old('area_code') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('area_code ') }}
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group col-md-6">
                                                     <label for="role">{{ __('field_role') }} <span>*</span></label>
                                                     <select class="form-control" name="roles[]" id="role" required>
                                                         <option value="">{{ __('select') }}</option>
@@ -264,7 +347,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="department">{{ __('field_department') }}
                                                         <span>*</span></label>
                                                     <select class="form-control" name="department" id="department"
@@ -282,7 +365,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="designation">{{ __('field_designation') }}
                                                         <span>*</span></label>
                                                     <select class="form-control" name="designation" id="designation"
@@ -301,7 +384,7 @@
                                                 </div>
 
                                                 {{-- 20 --}}
-                                                <div class="form-group col-md-4">
+                                                <div class="form-group col-md-6">
                                                     <label for="phone">{{ __('field_phone') }} <span>*</span></label>
                                                     <input type="text" class="form-control" name="phone"
                                                         id="phone" value="{{ old('phone') }}" required>
@@ -312,11 +395,15 @@
                                                 </div>
 
                                                 {{-- 21 --}}
-                                                <div class="form-group col-md-4">
-                                                    <label for="economic_stratum ">{{ __('Estrato económico') }}</label>
+                                                <div class="form-group col-md-6">
+                                                    <label for="economic_stratum ">{{ __('Estrato económico') }}
+                                                    <span>*</span></label>
                                                     <select class="form-control" name="economic_stratum "
                                                         id="economic_stratum ">
                                                         <option value="">{{ __('select') }}</option>
+                                                        <option value="0"
+                                                            @if (old('economic_stratum ') == 0) selected @endif>
+                                                            {{ __('0') }}</option>
                                                         <option value="1"
                                                             @if (old('economic_stratum ') == 1) selected @endif>
                                                             {{ __('1') }}</option>
@@ -348,8 +435,8 @@
 
                                                 {{-- 22 --}}
                                                 <div class="form-group col-md-6">
-                                                    <label for="email">{{ __('Correo electronico institucional') }}
-                                                        <span>*</span></label>
+                                                    <label for="email">{{ __('Correo electronico institucional') }}</label>
+                                                        
                                                     <input type="email" class="form-control"
                                                         name="institutional_e_mail " id="institutional_e_mail "
                                                         value="{{ old('institutional_e_mail ') }}" required>
@@ -373,9 +460,46 @@
                                                 {{-- 24 --}}
                                                 <div class="form-group col-md-6">
                                                     <label for="eps ">{{ __('EPS') }} <span>*</span></label>
-                                                    <input type="text" class="form-control" name="eps "
-                                                        id="eps " value="{{ old('eps ') }}" required>
-
+                                                    <select class="form-control" name="eps"
+                                                        id="eps">
+                                                        <option value="">{{ __('select') }}</option>
+                                                        <option value="COOSALUD EPS"
+                                                            @if (old('eps') == 'COOSALUD EPS') selected @endif>
+                                                            {{ __('COOSALUD EPS') }}</option>
+                                                        <option value="NUEVA EPS"
+                                                            @if (old('eps') == 'NUEVA EPS') selected @endif>
+                                                            {{ __('NUEVA EPS') }}</option>
+                                                        <option value="MUTUAL SER EPS"
+                                                            @if (old('eps') == 'MUTUAL SER EPS') selected @endif>
+                                                            {{ __('MUTUAL SER EPS') }}</option>
+                                                        <option value="SALUD TOTAL EPS"
+                                                            @if (old('eps') == 'SALUD TOTAL EPS') selected @endif>
+                                                            {{ __('SALUD TOTAL EPS') }}</option>
+                                                        <option value="EPS SANITAS"
+                                                            @if (old('eps') == 'EPS SANITAS') selected @endif>
+                                                            {{ __('EPS SANITAS') }}</option>
+                                                        <option value="EPS SURA"
+                                                            @if (old('eps') == 'EPS SURA') selected @endif>
+                                                            {{ __('EPS SURA') }}</option>
+                                                        <option value="FAMISANAR"
+                                                            @if (old('eps') == 'FAMISANAR') selected @endif>
+                                                            {{ __('FAMISANAR') }}</option>
+                                                        <option value="SERVICIO OCCIDENTAL DE SALUD EPS SOS"
+                                                            @if (old('eps') == 'SERVICIO OCCIDENTAL DE SALUD EPS SOS') selected @endif>
+                                                            {{ __('SERVICIO OCCIDENTAL DE SALUD EPS SOS') }}</option>
+                                                        <option value="SALUD MIA"
+                                                            @if (old('eps') == 'SALUD MIA') selected @endif>
+                                                            {{ __('SALUD MIA') }}</option>
+                                                        <option value="COMFENALCO VALLE"
+                                                            @if (old('eps') == 'COMFENALCO VALLE') selected @endif>
+                                                            {{ __('COMFENALCO VALLE') }}</option>
+                                                        <option value="COMPENSAR EPS"
+                                                            @if (old('eps') == 'COMPENSAR EPS') selected @endif>
+                                                            {{ __('COMPENSAR EPS') }}</option>
+                                                        <option value="EPM  EMPRESAS PUBLICAS DE MEDELLIN"
+                                                            @if (old('eps') == 'EPM  EMPRESAS PUBLICAS DE MEDELLIN') selected @endif>
+                                                            {{ __('EPM  EMPRESAS PUBLICAS DE MEDELLIN') }}</option>
+                                                    </select>
                                                     <div class="invalid-feedback">
                                                         {{ __('required_field') }} {{ __('eps ') }}
                                                     </div>
@@ -418,7 +542,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
+                                                {{-- <div class="row">
                                                     <div class="col-md-12">
                                                         <fieldset class="row scheduler-border">
                                                             <legend>{{ __('field_present') }} {{ __('field_address') }}
@@ -439,41 +563,7 @@
                                                             </div>
                                                         </fieldset>
                                                     </div>
-
-                                                    {{-- <div class="col-md-6">
-                                                      <fieldset class="row scheduler-border">
-                                                          <legend>{{ __('field_permanent') }} {{ __('field_address') }}</legend>
-          
-                                                          @include('common.inc.permanent_province')
-          
-                                                          <div class="form-group col-md-12">
-                                                              <label for="permanent_address">{{ __('field_address') }}</label>
-                                                              <input type="text" class="form-control" name="permanent_address"
-                                                                  id="permanent_address" value="{{ old('permanent_address') }}">
-          
-                                                              <div class="invalid-feedback">
-                                                                  {{ __('required_field') }} {{ __('field_address') }}
-                                                              </div>
-                                                          </div>
-                                                      </fieldset>
-                                                  </div> --}}
-                                                </div>
-
-
-
-
-
-                                                {{-- <div class="form-group col-md-6">
-                                                    <label for="national_id">{{ __('field_national_id') }}</label>
-                                                    <input type="text" class="form-control" name="national_id"
-                                                        id="national_id" value="{{ old('national_id') }}">
-
-                                                    <div class="invalid-feedback">
-                                                        {{ __('required_field') }} {{ __('field_national_id') }}
-                                                    </div>
                                                 </div> --}}
-
-
                                             </fieldset>
                                         </div>
                                     </div>
@@ -837,6 +927,75 @@
     </script>
 
     <script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            url: '/api/getcountries',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+                var len = response.length;
+                for (var i = 0; i < len; i++) {
+                    var country_name = response[i]['country_name'];
+                    var country_short_name = response[i]['country_short_name'];
+                    $("#nationality").append("<option value='" + country_name+ "'>" + country_name+ " - " +country_short_name +
+                        "</option>");
+                }
+            }
+        });
+    });
+    </script>
+    
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                url: '/api/getstates/Colombia',
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    var len = response.length;
+                    for (var i = 0; i < len; i++) {
+                        var state_name = response[i]['state_name'];
+                        $("#departamentos").append("<option value='" + state_name + "'>" + state_name +
+                            "</option>");
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#departamentos").change(function() {
+                var deptid = $(this).val();
+
+                $.ajax({
+                    url: '/api/getcities/'+deptid,
+                    type: 'get',
+                    dataType: 'json',
+                    error: function () {
+                        $("#cities").empty();
+                    },
+                    success: function(response) {
+                        var len = response.length;
+                        $("#cities").empty();
+                        for (var i = 0; i < len; i++) {
+                            var city_name = response[i]['city_name'];
+
+                            $("#cities").append("<option value='" + city_name + "'>" + city_name +
+                                "</option>");
+
+                        }
+                    }
+                });
+            });
+
+        });
+
+    </script>
+
+    <script type="text/javascript">
         (function($) {
             "use strict";
             // add Field
@@ -861,4 +1020,7 @@
             });
         }(jQuery));
     </script>
+
+
+
 @endsection

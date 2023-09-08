@@ -282,6 +282,9 @@
                                 <select class="form-control" name="economic_stratum "
                                     id="economic_stratum ">
                                     <option value="">{{ __('select') }}</option>
+                                    <option value="0"
+                                        @if( $row->economic_stratum == 0 ) selected @endif>
+                                        {{ __('0') }}</option>
                                     <option value="1"
                                         @if( $row->economic_stratum == 1 ) selected @endif>
                                         {{ __('1') }}</option>
@@ -337,9 +340,48 @@
 
                             {{-- 24 --}}
                             <div class="form-group col-md-6">
+                                {{-- @if( $row->economic_stratum == 0 ) selected @endif --}}
                                 <label for="eps">{{ __('eps') }} <span>*</span></label>
-                                <input type="text" class="form-control" name="eps"
-                                    id="eps" value="{{ $row->eps }}" required>
+                                <select class="form-control" name="eps"
+                                                        id="eps">
+                                    <option value="">{{ __('select') }}</option>
+                                    <option value="COOSALUD EPS"
+                                        @if ($row->eps == 'COOSALUD EPS') selected @endif>
+                                        {{ __('COOSALUD EPS') }}</option>
+                                    <option value="NUEVA EPS"
+                                        @if ($row->eps == 'NUEVA EPS') selected @endif>
+                                        {{ __('NUEVA EPS') }}</option>
+                                    <option value="MUTUAL SER EPS"
+                                        @if ($row->eps == 'MUTUAL SER EPS') selected @endif>
+                                        {{ __('MUTUAL SER EPS') }}</option>
+                                    <option value="SALUD TOTAL EPS"
+                                        @if ($row->eps == 'SALUD TOTAL EPS') selected @endif>
+                                        {{ __('SALUD TOTAL EPS') }}</option>
+                                    <option value="EPS SANITAS"
+                                        @if ($row->eps == 'EPS SANITAS') selected @endif>
+                                        {{ __('EPS SANITAS') }}</option>
+                                    <option value="EPS SURA"
+                                        @if ($row->eps == 'EPS SURA') selected @endif>
+                                        {{ __('EPS SURA') }}</option>
+                                    <option value="FAMISANAR"
+                                        @if ($row->eps == 'FAMISANAR') selected @endif>
+                                        {{ __('FAMISANAR') }}</option>
+                                    <option value="SERVICIO OCCIDENTAL DE SALUD EPS SOS"
+                                        @if ($row->eps == 'SERVICIO OCCIDENTAL DE SALUD EPS SOS') selected @endif>
+                                        {{ __('SERVICIO OCCIDENTAL DE SALUD EPS SOS') }}</option>
+                                    <option value="SALUD MIA"
+                                        @if ($row->eps == 'SALUD MIA') selected @endif>
+                                        {{ __('SALUD MIA') }}</option>
+                                    <option value="COMFENALCO VALLE"
+                                        @if ($row->eps == 'COMFENALCO VALLE') selected @endif>
+                                        {{ __('COMFENALCO VALLE') }}</option>
+                                    <option value="COMPENSAR EPS"
+                                        @if ($row->eps == 'COMPENSAR EPS') selected @endif>
+                                        {{ __('COMPENSAR EPS') }}</option>
+                                    <option value="EPM  EMPRESAS PUBLICAS DE MEDELLIN"
+                                        @if ($row->eps == 'EPM  EMPRESAS PUBLICAS DE MEDELLIN') selected @endif>
+                                        {{ __('EPM  EMPRESAS PUBLICAS DE MEDELLIN') }}</option>
+                                </select>
 
                                 <div class="invalid-feedback">
                                     {{ __('required_field') }} {{ __('eps') }}

@@ -224,6 +224,7 @@ class UserController extends Controller
             $user->mother_tongue = $request->mother_tongue;
             $user->marital_status = $request->marital_status;
             $user->blood_group = $request->blood_group;
+            /** Campos agregar en editar*/
             $user->nationality = $request->nationality;
             $user->national_id = $request->national_id;
             $user->passport_no = $request->passport_no;
@@ -270,12 +271,24 @@ class UserController extends Controller
             $user->second_last_name = $request->second_last_name;
             $user->second_first_name = $request->second_first_name;
             $user->expedition_date = $request->expedition_date;
+
+            /** Campos agregar en editar*/
             $user->place_of_birth = $request->place_of_birth;
+            $user->town_of_birth = $request->town_of_birth;
+
+            /** Campos agregar en editar*/
             $user->expiration_date = $request->expiration_date;
             $user->economic_stratum = $request->economic_stratum;
             $user->institutional_e_mail = $request->institutional_e_mail;
             $user->eps = $request->eps;
-            $user->habeas_data = $request->habeas_data;
+
+            $user->place_of_residence = $request->place_of_residence;
+            $user->residence_address = $request->residence_address;
+            $user->neighborhood = $request->neighborhood;
+            $user->country_code = $request->country_code;
+            $user->area_code = $request->area_code;
+            // $user->habeas_data = $request->habeas_data;
+
 
             $user->save();
 
@@ -457,6 +470,7 @@ class UserController extends Controller
             $user->mother_tongue = $request->mother_tongue;
             $user->marital_status = $request->marital_status;
             $user->blood_group = $request->blood_group;
+            //Campos agregar en editar
             $user->nationality = $request->nationality;
             $user->national_id = $request->national_id;
             $user->passport_no = $request->passport_no;
@@ -502,12 +516,21 @@ class UserController extends Controller
             $user->second_last_name = $request->second_last_name;
             $user->second_first_name = $request->second_first_name;
             $user->expedition_date = $request->expedition_date;
+
             $user->place_of_birth = $request->place_of_birth;
+            $user->town_of_birth = $request->town_of_birth;
+
             $user->expiration_date = $request->expiration_date;
             $user->economic_stratum = $request->economic_stratum;
             $user->institutional_e_mail = $request->institutional_e_mail;
             $user->eps = $request->eps;
-            $user->habeas_data = $request->habeas_data;
+            //$user->habeas_data = $request->habeas_data;
+            $user->place_of_residence = $request->place_of_residence;
+            $user->residence_address = $request->residence_address;
+            $user->neighborhood = $request->neighborhood;
+            $user->country_code = $request->country_code;
+            $user->area_code = $request->area_code;
+            
 
             $user->save();
 

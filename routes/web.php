@@ -12,6 +12,9 @@
 */
 
 // Web Routes
+
+use Illuminate\Support\Facades\Route;
+
 Route::middleware(['XSS'])->namespace('Web')->group(function () {
 
     // Home Route
@@ -68,6 +71,7 @@ Route::middleware(['XSS'])->prefix('admin')->group(function () {
 
 // Admin Routes
 Route::middleware(['auth:web', 'XSS'])->name('admin.')->namespace('Admin')->prefix('admin')->group(function () {
+
 
     
     Route::get('admission/preregistration', 'PreregistrationController@show')->name('preregistration.show');
