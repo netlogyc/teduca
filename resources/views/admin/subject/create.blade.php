@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="homologable">{{ __('homologable') }} <span>*</span></label>
-                                        <select class="form-control" name="homologable" id="class_type" required>
+                                        <select class="form-control" name="homologable" id="homologable" required>
                                             <option value="">{{ __('select') }}</option>
                                             <option value="SI">{{ __('SI') }}</option>
                                             <option value="NO">{{ __('NO') }}</option>
@@ -151,10 +151,16 @@
                                    
                                     <div class="form-group col-md-4">
                                         <label for="credit_hour">{{ __('minimum_grade_approved') }} <span>*</span></label>
+                                        <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
+                                            <option value="">{{ __('select') }}</option>
+                                            <option value="TRANSFERENCIA INTERNA = 3.0">{{ __('TRANSFERENCIA INTERNA = 3.0') }}</option>
+                                            <option value="TRANSFERENCIA EXTERNA = 3.4">{{ __('TRANSFERENCIA EXTERNA = 3.4') }}</option>
+                                        </select>
+{{--                                         
                                         <input type="text" class="form-control autonumber"
                                             name="minimum_grade_approved" id="minimum_grade_approved"
                                             value="{{ old('minimum_grade_approved') }}" required data-v-max="999999999"
-                                            data-v-min="0">
+                                            data-v-min="0"> --}}
 
                                         <div class="invalid-feedback">
                                             {{ __('required_field') }} {{ __('minimum_grade_approved') }}
