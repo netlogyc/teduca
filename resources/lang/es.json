@@ -415,7 +415,7 @@
     "field_student_id": "Identificación del Estudiante",
     "field_student_photo": "Foto del estudiante",
     "field_subject": "Curso",
-    "field_subject_type": "Tipo de asignatura",
+    "field_subject_type": "Tipo de curso",
     "field_submission": "Envío",
     "field_subtitle": "Subtítulo",
     "field_supplier": "Proveedor",
@@ -627,11 +627,11 @@
     "module_student_note": "Notas del estudiante",
     "module_student_promotion": "Promociones Estudiantiles",
     "module_student_report": "Asistencia estudiantil",
-    "module_student_subject_attendance": "Asignaturas | Asistencias",
+    "module_student_subject_attendance": "Cursos | Asistencias",
     "module_student_subject_report": "Reporte de asignaturas",
     "module_student_transfer": "Transferencia de estudiantes",
     "module_study_material": "Materiales de estudio",
-    "module_subject": "Asignaturas",
+    "module_subject": "Cursos",
     "module_subject_adddrop": "Curso Agregar Descenso",
     "module_subject_marking": "Libro mayor de marcas de curso",
     "module_subject_result": "Resultados del curso",
@@ -769,10 +769,10 @@
     "validity_end":"Vigencial final",
 
     "field_intensity":"Intensidad horaria (Semanal)",
-    "theoretical_unit":"Unidad teorica",
-    "practical_unit":"Unidad practica",
-    "minimum_note":"Nota minima",
-    "maximum_note":"Nota maxima",
+    "theoretical_unit":"Unidad teórica",
+    "practical_unit":"Unidad práctica",
+    "minimum_note":"Nota mínima",
+    "maximum_note":"Nota máxima",
     "passing_grade":"Nota aprobatoria",
     "homologable":"¿ Homologa ?",
     "minimum_grade_approved":"Nota mínima homologable",
@@ -794,6 +794,6 @@
     "departamento_location":"Departmento del documento",
     "cell_phone_number":"Número de celular",
     "interest":"Interes",
-    "field_jornada":"Jornada"
+    "field_jornada":"Horario"
     
 }

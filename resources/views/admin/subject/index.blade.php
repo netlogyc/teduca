@@ -93,8 +93,9 @@
                                         <th>{{ __('field_title') }}</th>
                                         <th>{{ __('field_code') }}</th>
                                         <th>{{ __('field_credit_hour_short') }}</th>
-                                        <th>{{ __('field_subject_type') }}</th>
                                         <th>{{ __('field_class_type') }}</th>
+
+                                        <th>{{ __('field_subject_type') }}</th>
                                         <th>{{ __('field_program') }}</th>
 
                                         <th>{{ __('field_intensity') }}</th>
@@ -126,13 +127,6 @@
                                         <td>{{ $row->code }}</td>
                                         <td>{{ $row->credit_hour }}</td>
                                         <td>
-                                            @if( $row->subject_type == 1 )
-                                            {{ __('subject_type_compulsory') }}
-                                            @elseif( $row->subject_type == 0 )
-                                            {{ __('subject_type_optional') }}
-                                            @endif
-                                        </td>
-                                        <td>
                                             @if( $row->class_type == 1 )
                                             {{ __('class_type_theory') }}
                                             @elseif( $row->class_type == 2 )
@@ -141,6 +135,14 @@
                                             {{ __('class_type_both') }}
                                             @endif
                                         </td>
+                                        <td>
+                                            @if( $row->subject_type == 1 )
+                                            {{ __('subject_type_compulsory') }}
+                                            @elseif( $row->subject_type == 0 )
+                                            {{ __('subject_type_optional') }}
+                                            @endif
+                                        </td>
+                                        
                                         <td>
                                             @foreach($row->programs->sortBy('title') as $program)
                                                 <span class="badge badge-info">{{ $program->title }}</span>
