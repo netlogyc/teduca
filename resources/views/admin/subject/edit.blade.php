@@ -153,8 +153,7 @@
                                             data-v-min="0"> --}}
                                         <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
                                             <option value="">{{ __('select') }}</option>
-                                            <option value="TRANSFERENCIA INTERNA = 3.0" @if ($row->minimum_grade_approved == 'TRANSFERENCIA INTERNA = 3.0') selected @endif>{{ __('TRANSFERENCIA INTERNA = 3.0') }}</option>
-                                            <option value="TRANSFERENCIA EXTERNA = 3.4" @if ($row->minimum_grade_approved == 'TRANSFERENCIA EXTERNA = 3.4') selected @endif>{{ __('TRANSFERENCIA EXTERNA = 3.4') }}</option>
+                                            <option value="Transferencia interna = 3.0 / Transferencia externa =3.4" @if ($row->minimum_grade_approved == 'Transferencia interna = 3.0 / Transferencia externa =3.4') selected @endif>{{ __('Transferencia interna = 3.0 / Transferencia externa =3.4') }}</option>
                                         </select>
 
                                         <div class="invalid-feedback">

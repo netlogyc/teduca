@@ -153,8 +153,7 @@
                                         <label for="credit_hour">{{ __('minimum_grade_approved') }} <span>*</span></label>
                                         <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
                                             <option value="">{{ __('select') }}</option>
-                                            <option value="TRANSFERENCIA INTERNA = 3.0">{{ __('TRANSFERENCIA INTERNA = 3.0') }}</option>
-                                            <option value="TRANSFERENCIA EXTERNA = 3.4">{{ __('TRANSFERENCIA EXTERNA = 3.4') }}</option>
+                                            <option value="Transferencia interna = 3.0 / Transferencia externa =3.4">{{ __('Transferencia interna = 3.0 / Transferencia externa =3.4') }}</option>
                                         </select>
 {{--                                         
                                         <input type="text" class="form-control autonumber"
