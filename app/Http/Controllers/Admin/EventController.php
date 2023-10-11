@@ -175,8 +175,29 @@ class EventController extends Controller
                             ->where('end_date', '>=', Carbon::today())
                             ->orderBy('start_date', 'asc')
                             ->get();
-
-
+        $data['filtro'] = 0;
+        $data['dia_filtro']=0;
+        // return $data;
         return view('admin.calendar.index', $data);
+    }
+
+    public function getDataFilter(Request $request){
+         //
+         $data['title'] = trans_choice('module_calendar', 1);
+         $data['route'] = 'calendarfilter';
+         
+        //  $data['rows'] = Event::where('start_date','>=',$request->filtro)->orWhere('end_date','<=',$request->filtro)->where('status', '1')->orderBy('id', 'asc')->get();
+        $data['rows'] = Event::where('start_date','<=',$request->filtro)->Where('end_date','>=',$request->filtro)->where('status', '1')->orderBy('id', 'asc')->get();
+
+         $data['latest_events'] = Event::where('status', '1')
+                             ->where('end_date', '>=', Carbon::today())
+                             ->orderBy('start_date', 'asc')
+                             ->get();
+        if(count($data['rows']) >0){
+            $data['filtro'] =1;
+            $data['dia_filtro']=$request->filtro;
+        }
+        // return $request->filtro;
+         return view('admin.calendar.index', $data);
     }
 }

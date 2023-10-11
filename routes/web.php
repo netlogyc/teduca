@@ -246,6 +246,7 @@ Route::middleware(['auth:web', 'XSS'])->name('admin.')->namespace('Admin')->pref
     Route::resource('communicate/sms-notify', 'SMSNotifyController');
     Route::resource('communicate/event', 'EventController');
     Route::get('communicate/event-calendar', 'EventController@calendar')->name('event.calendar');
+    Route::post('communicate/event-calendar-filter', 'EventController@getDataFilter')->name('event.calendarfilter');
     Route::resource('communicate/notice', 'NoticeController');
     Route::resource('communicate/notice-category', 'NoticeCategoryController');
 

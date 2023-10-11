@@ -13,11 +13,29 @@
     <div class="main-body">
         <div class="page-wrapper">
             <!-- [ Main Content ] start -->
+            {{-- <form action="event.calendarfilter" method="POST">
+                <label for="">Filtra una fecha:</label>
+                <input type="date" class="form-control date" name="filtro" id="filtro" value="{{ old('filtro') }}" required>
+                <input type="submit" value="Buscar">
+            </form> --}}
+
             <div class="row">
                 <div class="col-xl-8 col-md-8 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h5>{{ $title }}</h5>
+                            <form action="{{ url('/admin/communicate/event-calendar-filter') }}" method="POST">
+                                @csrf
+                                <label for="">Filtra una fecha:</label>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input type="date" class="form-control date" name="filtro" id="filtro" value="{{ old('filtro') }}" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="submit" value="Buscar" class="btn btn-info">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-block">
 
@@ -86,7 +104,7 @@
         $(window).on('load', function() {
             "use strict";
             $('#calendar').fullCalendar({
-                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNames: ['DOMINGO', 'LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO'],
                 dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'],
                 monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct',
                     'Nov', 'Dic'
@@ -107,10 +125,18 @@
                     center: 'title',
                     right: 'year,month,basicWeek,basicDay'
                 },
-                defaultDate: '@php echo date("Y-m-d"); @endphp',
+                defaultDate: "@php if($dia_filtro == 0){echo date('Y-m-d');}else{echo date($dia_filtro);}  @endphp",
                 editable: false,
                 droppable: false,
-                defaultView: 'year',
+                defaultView: 
+                    @php 
+                        if($filtro){
+                            echo "'month'";
+                        }else{
+                            echo "'year'";
+                        }   
+                    @endphp ,
+                // defaultView: ''
                 locales: 'es',
                 events: [
 

@@ -1,10 +1,14 @@
-@extends('admin.layouts.master')
+ @extends('admin.layouts.master')
 @section('title', $title)
 @section('page_css')
+<link rel='stylesheet' href="https://rawgit.com/monkbroc/fullcalendar/year-view-demo/dist/fullcalendar.css" />
 <style>
     #pieChart{
         max-width: 100% !important;
         max-height: 500px !important;
+    }
+    .fc-axis {
+        display:none;
     }
 </style>
 @endsection
@@ -15,6 +19,22 @@
 <div class="main-body">
     <div class="page-wrapper">
         <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xl-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h5>EVENTOS DE HOY</h5>
+                    </div>
+                    <div class="card-block">
+
+                        <!-- [ Calendar ] start -->
+                        <div id='calendar' class='calendar'></div>
+                        <!-- [ Calendar ] end -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <!-- [ bitcoin-wallet section ] start-->
             <div class="col-sm-6 col-md-6 col-xl-3">
@@ -124,6 +144,9 @@
 @section('page_js')
 <!-- chart Js -->
 <script src="{{ asset('dashboard/plugins/chart-chartjs/js/chart.min.js') }}"></script>
+<script src="{{ asset('dashboard/plugins/fullcalendar/js/lib/moment.min.js') }}"></script>
+<script src="{{ asset('dashboard/plugins/fullcalendar/js/lib/jquery-ui.min.js') }}"></script>
+<script src="https://rawgit.com/monkbroc/fullcalendar/year-view-demo/dist/fullcalendar.js"></script>
 
 
 <script type="text/javascript">
@@ -240,6 +263,75 @@
         }
     });
 </script>
+
+<script type="text/javascript">
+        // Full calendar
+        $(window).on('load', function() {
+            "use strict";
+            $('#calendar').fullCalendar({
+                dayNames: ['DOMINGO', 'LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct',
+                    'Nov', 'Dic'
+                ],
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto',
+                    'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                ],
+                buttonText: {
+                    today: 'Hoy',
+                    year:'Año',
+                    month: 'Mes',
+                    week: 'Semana',
+                    day: 'Día',
+                    list: 'Lista'
+                },
+                header: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'basicDay'
+                },
+                defaultDate: '@php echo date("Y-m-d"); @endphp',
+                editable: false,
+                droppable: false,
+                defaultView: 
+                    @php  echo "'agendaDay'";
+                        // if($filtro){
+                           
+                        // }else{
+                        //     echo "'year'";
+                        // }   
+                    @endphp ,
+                // defaultView: ''
+                locales: 'es',
+                events: [
+
+                    @php
+                        foreach ($rows as $key => $row) {
+                            echo "{
+                                title: '" .
+                                $row->title .
+                                "',
+                                start: '" .
+                                $row->start_date .
+                                "',
+                                end: '" .
+                                $row->end_date .
+                                "',
+                                borderColor: '" .
+                                $row->color .
+                                "',
+                                backgroundColor: '" .
+                                $row->color .
+                                "',
+                                textColor: '#fff'
+                            }, ";
+                        }
+                    @endphp
+
+                ],
+            });
+        });
+    </script>
 
 <script type="text/javascript">
 "use strict";
