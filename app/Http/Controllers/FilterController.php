@@ -134,22 +134,24 @@ class FilterController extends Controller
         $user->with('roles')->whereHas('roles', function ($query){
             $query->where('slug', 'super-admin');
         });
+
         $superAdmin = $user->first();
-
-
         // Filter Subject
         $rows = Subject::where('status', '1');
-        $rows->with('classes')->whereHas('classes', function ($query) use ($teacher_id, $session, $superAdmin){
-            if(isset($session)){
-                $query->where('session_id', $session);
-            }
-            if(!isset($superAdmin)){
-                $query->where('teacher_id', $teacher_id);
-            }
-        });
+
+        // $rows->with('classes')->whereHas('classes', function ($query) use ($teacher_id, $session, $superAdmin){
+        //     if(isset($session)){
+        //         $query->where('session_id', $session);
+        //     }
+        //     if(!isset($superAdmin)){
+        //         $query->where('teacher_id', $teacher_id);
+        //     }
+        // });
+
         $rows->with('programs')->whereHas('programs', function ($query) use ($data){
             $query->where('program_id', $data['program']);
         });
+
         $subjects = $rows->orderBy('code', 'asc')->get();
 
         return response()->json($subjects);
