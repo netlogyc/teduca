@@ -96,8 +96,11 @@
                                 <div class="col-md-6">
                                     <fieldset class="row gx-2 scheduler-border">
                                         <p><mark class="text-primary">{{ __('field_interesting_date') }}:</mark> {{ $row->fecha_de_inters }}</p><hr/>
-                                        <p><mark class="text-primary">{{ __('field_name') }}:</mark> {{ $row->nombres }}</p><hr/>
-                                        <p><mark class="text-primary">{{ __('field_last_name') }}:</mark> {{ $row->apellidos }}</p><hr/>
+                                        <p><mark class="text-primary">{{ __('Primer nombre') }}:</mark> {{ $row->primer_nombre }}</p><hr/>
+                                        <p><mark class="text-primary">{{ __('Segundo nombre') }}:</mark> {{ $row->segundo_nombre }}</p><hr/>
+                                        <p><mark class="text-primary">{{ __('Primer apellido') }}:</mark> {{ $row->primer_apellido }}</p><hr/>
+                                        <p><mark class="text-primary">{{ __('Segundo apellido') }}:</mark> {{ $row->segundo_apellido }}</p><hr/>
+                                        {{-- <p><mark class="text-primary">{{ __('field_last_name') }}:</mark> {{ $row->apellidos }}</p><hr/> --}}
                                         <p><mark class="text-primary">{{ __('field_document_type') }}:</mark> {{ $row->tipos_de_documento }}</p><hr/>
                                         <p><mark class="text-primary">{{ __('field_document_number') }}:</mark> {{ $row->numero_de_documento }}</p><hr/>
                                         <p><mark class="text-primary">{{ __('expedition_date') }}:</mark> {{ $row->fecha_de_expedicion }}</p><hr/>

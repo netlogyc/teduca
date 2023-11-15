@@ -21,7 +21,7 @@
                                 <div class="form-group">
                                     <label for="status">{{ __('field_status') }} <span>*</span></label>
                                     <select class="form-control" name="status" id="status" required>
-                                        <option value="1" @if($row->status == 1) selected @endif>{{ __('Preinscrito') }}</option>
+                                        <option value="1" @if($row->status == 1 || $row->status == '' || $row->status == null) selected @endif>{{ __('Preinscrito') }}</option>
                                         <option value="2" @if($row->status == 2) selected @endif>{{ __('Entrevista') }}</option>
                                         <option value="3" @if($row->status == 3) selected @endif>{{ __('Aceptado') }}</option>
                                     </select>

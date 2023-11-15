@@ -13,8 +13,10 @@ class Preregistration extends Model
     protected $fillable = [
         'db4_status',
         'fecha_de_inters',
-        'nombres',
-        'apellidos',
+        'primer_nombre',
+        'segundo_nombre',
+        'primer_apellido',
+        'segundo_nombre',
         'tipos_de_documento',
         'numero_de_documento',
         'fecha_de_expedicion',

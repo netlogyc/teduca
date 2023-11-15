@@ -36,7 +36,7 @@ class PreregistrationController extends Controller
         
         $data['rows'] = Preregistration::orderBy('fecha_de_inters', 'asc')->get();
         // return $data['rows'];
-        
+        // return $data;
         return view($this->view.'.index', $data);
     }
     public function show()
@@ -45,6 +45,7 @@ class PreregistrationController extends Controller
     }
     public function update(Request $request, $id)
     {
+       
 
         // Field Validation
         $request->validate([

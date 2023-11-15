@@ -18,8 +18,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{ __('field_interesting_date') }}</th>
-                                        <th>{{ __('field_name') }}</th>
-                                        <th>{{ __('field_last_name') }}</th>
+                                        <th>{{ __('Primer nombre') }}</th>
+                                        <th>{{ __('Segundo nombre') }}</th>
+                                        <th>{{ __('Primer apellido') }}</th>
+                                        <th>{{ __('Segundo apellido') }}</th>
                                         <th>{{ __('field_document_type') }}</th>
                                         <th>{{ __('field_document_number') }}</th>
 
@@ -40,8 +42,10 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $row->fecha_de_inters }}</td>
-                                        <td>{{ $row->nombres }}</td>
-                                        <td>{{ $row->apellidos }}</td>
+                                        <td>{{ $row->primer_nombre }}</td>
+                                        <td>{{ $row->segundo_nombre }}</td>
+                                        <td>{{ $row->primer_apellido }}</td>
+                                        <td>{{ $row->segundo_apellido }}</td>
                                         <td>{{ $row->tipos_de_documento }}</td>
                                         <td>{{ $row->numero_de_documento }}</td>
                                         <td>{{ $row->fecha_de_expedicion }}</td>
@@ -53,7 +57,7 @@
                                         <td>{{ $row->programa_acadmico }}</td>
                                         <td>{{ $row->por_que_le_interesa_esta_programa_acadmico }}</td>
                                         <td>
-                                            @if( $row->status == 1 )
+                                            @if( $row->status == 1 || $row->status == '' || $row->status == null )
                                             <span class="badge badge-pill badge-primary">{{ __('Preinscrito') }}</span>
                                             @elseif ( $row->status == 2 )
                                             <span class="badge badge-pill badge-warning">{{ __('Entrevista') }}</span>
