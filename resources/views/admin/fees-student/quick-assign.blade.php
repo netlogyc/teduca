@@ -34,10 +34,10 @@
 
                         <div class="form-group col-md-6">
                             <label for="category">{{ __('field_fees_type') }} <span>*</span></label>
-                            <select class="form-control" name="category" id="category" required>
+                            <select class="form-control categories" name="category" id="category" required>
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $categories as $category )
-                                <option value="{{ $category->id }}" @if(old('category') == $category->id) selected @endif>{{ $category->title }}</option>
+                                    <option value="{{ $category->id }}" @if(old('category') == $category->id) selected @endif>{{ $category->title }}</option>
                                 @endforeach
                             </select>
 
@@ -65,9 +65,8 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="amount" class="form-label">{{ __('field_amount') }} ({!! $setting->currency_symbol !!}) <span>*</span></label>
-                            <input type="text" class="form-control autonumber" name="amount" id="amount" value="{{ old('amount') }}" required>
-
+                            <label for="amount" class="form-label">{{ __('field_amount') }} ({!! $setting->currency_symbol !!}) </label>
+                            <input type="number" class="form-control amount" name="amount" id="amount" value="0" readonly>    
                             <div class="invalid-feedback">
                                 {{ __('required_field') }} {{ __('field_amount') }}
                             </div>
@@ -100,4 +99,32 @@
 </div>
 <!-- End Content-->
 
+<script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
+<script type="text/javascript">
+    $(".categories").on('change',function(e){
+        e.preventDefault(e);
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'GET',
+            url: "{{ route('get-fees-category') }}",
+            data:{
+            _token:$('input[name=_token]').val(),
+            category:$(".categories").val(),
+            },
+            success:function(response){
+                if (response.category.amount == null) {
+                    $(".amount").val(0);
+                } else {
+                    $(".amount").val(response.category.amount);
+                }
+
+            }
+
+        });
+    });
+</script>
 @endsection

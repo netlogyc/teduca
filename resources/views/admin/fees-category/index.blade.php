@@ -25,6 +25,14 @@
                                   {{ __('required_field') }} {{ __('field_title') }}
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="amount" class="form-label">{{ __('Cantidad ($)') }} <span>*</span></label>
+                                <input type="number" class="form-control" name="amount" id="amount" value="{{ old('amount') }}" required>
+
+                                <div class="invalid-feedback">
+                                  {{ __('required_field') }} {{ __('field_amount') }}
+                                </div>
+                            </div>
                             <!-- Form End -->
                         </div>
                         <div class="card-footer">
@@ -47,6 +55,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{ __('field_title') }}</th>
+                                        <th>{{ __('field_amount') }}</th>
                                         <th>{{ __('field_status') }}</th>
                                         <th>{{ __('field_action') }}</th>
                                     </tr>
@@ -56,6 +65,7 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $row->title }}</td>
+                                        <td>($){{ number_format((float)$row->amount, 2, '.', '') }} </td>
                                         <td>
                                             @if( $row->status == 1 )
                                             <span class="badge badge-pill badge-success">{{ __('status_active') }}</span>

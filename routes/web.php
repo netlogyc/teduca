@@ -13,6 +13,7 @@
 
 // Web Routes
 
+use App\Http\Controllers\Admin\FeesStudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['XSS'])->namespace('Web')->group(function () {
@@ -47,6 +48,9 @@ Route::middleware(['XSS'])->group(function () {
     Route::post('filter-department', 'InventoryController@filterDepartment')->name('filter-department');
     Route::post('filter-room', 'HostelController@filterRoom')->name('filter-room');
     Route::post('filter-vehicle', 'TransportController@filterVehicle')->name('filter-vehicle');
+    Route::get('get-category', [FeesStudentController::class,'getCategory'])->name('get-fees-category');
+    Route::get('get-category-fee', [FeesStudentController::class,'getCategoryFee'])->name('get-fees-category-fee');
+    Route::get('get-category-discount', [FeesStudentController::class,'getDiscount'])->name('get-fees-discount');
 });
 
 

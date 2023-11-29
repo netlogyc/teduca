@@ -74,6 +74,23 @@
 	</div>
 </div>
 
+<div class="form-group col-md-3">
+  <label for="section">{{ __('Estudiante') }}</label>
+	{{-- <select class="form-control section" name="section" id="section">
+		<option value="0">{{ __('all') }}</option>
+		@if(isset($sections))
+		@foreach( $sections->sortBy('title') as $section )
+		<option value="{{ $section->id }}" @if( $selected_section == $section->id) selected @endif>{{ $section->title }}</option>
+		@endforeach
+		@endif
+	</select> --}}
+  <input class="form-control student" id="student" name="student" type="text">
+
+	<div class="invalid-feedback">
+		{{ __('required_field') }} {{ __('Estudiante') }}
+	</div>
+</div>
+
 
 <script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
 

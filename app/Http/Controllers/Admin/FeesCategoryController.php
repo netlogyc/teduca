@@ -71,11 +71,13 @@ class FeesCategoryController extends Controller
         // Field Validation
         $request->validate([
             'title' => 'required|max:191|unique:fees_categories,title',
+            'amount' => 'required|numeric',
         ]);
 
         // Insert Data
         $feesCategory = new FeesCategory;
         $feesCategory->title = $request->title;
+        $feesCategory->amount = $request->amount;
         $feesCategory->slug = Str::slug($request->title, '-');
         $feesCategory->description = $request->description;
         $feesCategory->save();
@@ -120,11 +122,13 @@ class FeesCategoryController extends Controller
         // Field Validation
         $request->validate([
             'title' => 'required|max:191|unique:fees_categories,title,'.$feesCategory->id,
+            'amount' => 'required|numeric',
         ]);
 
         // Update Data
         $feesCategory->title = $request->title;
         $feesCategory->slug = Str::slug($request->title, '-');
+        $feesCategory->amount = $request->amount;
         $feesCategory->description = $request->description;
         $feesCategory->status = $request->status;
         $feesCategory->save();

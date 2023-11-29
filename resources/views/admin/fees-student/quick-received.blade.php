@@ -18,7 +18,7 @@
                     <div class="card-block">
                       <div class="row">
                         <!-- Form Start -->
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="student">{{ __('field_student_id') }} <span>*</span></label>
                             <select class="form-control select2" name="student" id="student" required>
                                 <option value="">{{ __('select') }}</option>
@@ -32,9 +32,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="category">{{ __('field_fees_type') }} <span>*</span></label>
-                            <select class="form-control" name="category" id="category" required>
+                            <select class="form-control categories" name="category" id="category" required>
                                 <option value="">{{ __('select') }}</option>
                                 @foreach( $categories as $category )
                                 <option value="{{ $category->id }}" @if(old('category') == $category->id) selected @endif>{{ $category->title }}</option>
@@ -45,6 +45,21 @@
                               {{ __('required_field') }} {{ __('field_fees_type') }}
                             </div>
                         </div>
+                        <div class="form-group col-md-4">
+                          <label for="category">{{ __('field_discounts_type') }} <span>*</span></label>
+                          <select class="form-control discount" name="discount" id="discount">
+                            <option value="0">{{ __('select') }}</option>
+                            @if(isset($discounts))
+                              @foreach( $discounts->sortBy('title') as $discount )
+                                <option value="{{ $discount->id }}" >{{ $discount->title }}</option>
+                              @endforeach
+                            @endif
+                          </select>
+
+                          <div class="invalid-feedback">
+                            {{ __('required_field') }} {{ __('field_fees_type') }}
+                          </div>
+                      </div>
 
                         <div class="form-group col-md-6">
                             <label for="due_date" class="form-label">{{ __('field_due_date') }} <span>*</span></label>
@@ -66,7 +81,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="fee_amount" class="form-label">{{ __('field_fee') }} ({!! $setting->currency_symbol !!}) <span>*</span></label>
-                            <input type="text" class="form-control autonumber" name="fee_amount" id="fee_amount" value="{{ old('fee_amount') ?? 0 }}" onkeyup="feesCalculator()" required>
+                            <input type="text" class="form-control fee_amount" name="fee_amount" id="fee_amount" value="{{  0 }}" onkeyup="feesCalculator()" required readonly>
 
                             <div class="invalid-feedback">
                               {{ __('required_field') }} {{ __('field_fee') }}
@@ -75,7 +90,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="discount_amount" class="form-label">{{ __('field_discount') }} ({!! $setting->currency_symbol !!}) <span>*</span></label>
-                            <input type="text" class="form-control autonumber" name="discount_amount" id="discount_amount" value="{{ old('discount_amount') ?? 0 }}" onkeyup="feesCalculator()" required>
+                            <input type="text" class="form-control discount_amount" name="discount_amount" id="discount_amount" value="{{ old('discount_amount') ?? 0 }}" onkeyup="feesCalculator()" required readonly>
 
                             <div class="invalid-feedback">
                               {{ __('required_field') }} {{ __('field_discount') }}
@@ -84,7 +99,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="fine_amount" class="form-label">{{ __('field_fine_amount') }} ({!! $setting->currency_symbol !!}) <span>*</span></label>
-                            <input type="text" class="form-control autonumber" name="fine_amount" id="fine_amount" value="{{ old('fine_amount') ?? 0 }}" onkeyup="feesCalculator()" required>
+                            <input type="text" class="form-control fine_amount" name="fine_amount" id="fine_amount" value="" onkeyup="feesCalculator()" required>
 
                             <div class="invalid-feedback">
                               {{ __('required_field') }} {{ __('field_fine_amount') }}
@@ -93,7 +108,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="paid_amount" class="form-label">{{ __('field_net_amount') }} ({!! $setting->currency_symbol !!}) <span>*</span></label>
-                            <input type="text" class="form-control autonumber" name="paid_amount" id="paid_amount" value="{{ old('paid_amount') ?? 0 }}" onkeyup="feesCalculator()" readonly required>
+                            <input type="text" class="form-control paid_amount" name="paid_amount" id="paid_amount" value="{{  0 }}" onkeyup="feesCalculator()" readonly required>
 
                             <div class="invalid-feedback">
                               {{ __('required_field') }} {{ __('field_net_amount') }}
@@ -139,6 +154,7 @@
 @endsection
 
 @section('page_js')
+    <script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
     <script type="text/javascript">
         "use strict";
         function feesCalculator() {
@@ -149,7 +165,7 @@
           
           //
           if (isNaN(parseFloat(fee_amount))) fee_amount = 0;
-          if (isNaN(parseFloat(fine_amount))) fine_amount = 0;
+          // if (isNaN(parseFloat(fine_amount))) fine_amount = 0;
           if (isNaN(parseFloat(discount_amount))) discount_amount = 0;
           $("input[name='fee_amount']").val(fee_amount);
           $("input[name='fine_amount']").val(fine_amount);
@@ -159,5 +175,72 @@
           var net_total = (parseFloat(fee_amount) - parseFloat(discount_amount)) + parseFloat(fine_amount);
           $("input[name='paid_amount']").val(net_total);
         }
+
+        $(".categories").on('change',function(e){
+          
+          e.preventDefault(e);
+          var discount=$(".discount");
+          $.ajaxSetup({
+              headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+          $.ajax({
+              type:'GET',
+              url: "{{ route('get-fees-category-fee') }}",
+              data:{
+              _token:$('input[name=_token]').val(),
+              category:$(".categories").val(),
+              },
+              success:function(response){
+                  if (response.category.amount == null) {
+                      $(".fee_amount").val(0);
+                  } else {
+                      $(".fee_amount").val(response.category.amount);
+                  }
+
+                  $('option', discount).remove();
+                  $('.discount').append('<option value="">{{ __("select") }}</option>');
+                  $.each(response.discount, function(){
+                    $('<option/>', {
+                      'value': this.id,
+                      'text': this.title
+                    }).appendTo('.discount');
+                  });
+
+              }
+
+          });
+        });
+
+        $(".discount").on('change',function(e){
+          
+          e.preventDefault(e);
+          var discount=$(".discount");
+          $.ajaxSetup({
+              headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+          $.ajax({
+              type:'GET',
+              url: "{{ route('get-fees-discount') }}",
+              data:{
+              _token:$('input[name=_token]').val(),
+              discount:$(".discount").val(),
+              },
+              success:function(response){
+                // console.log(response.discount.amount);
+                  if (response.discount.amount == null) {
+                      $(".discount_amount").val(0);
+                  } else {
+                      var cal = $(".fee_amount").val()*response.discount.amount/100;
+                      $(".discount_amount").val(cal);
+                  }
+
+              }
+
+          });
+        });
     </script>
 @endsection

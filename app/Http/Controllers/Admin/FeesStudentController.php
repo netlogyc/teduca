@@ -15,6 +15,7 @@ use App\Models\Session;
 use App\Models\Program;
 use App\Models\Section;
 use App\Models\Fee;
+use App\Models\FeesDiscount;
 use Carbon\Carbon;
 use Toastr;
 use Auth;
@@ -549,7 +550,7 @@ class FeesStudentController extends Controller
 
         $data['students'] = $students->orderBy('student_id', 'asc')->get();
 
-
+        // return $data;
         return view($this->view.'.quick-assign', $data);
     }
 
@@ -565,7 +566,7 @@ class FeesStudentController extends Controller
         $request->validate([
             'student' => 'required',
             'category' => 'required',
-            'amount' => 'required|numeric',
+            // 'amount' => 'required|numeric',
             'type' => 'required|numeric',
             'assign_date' => 'required|date|after_or_equal:today',
             'due_date' => 'required|date|after_or_equal:assign_date',
@@ -575,15 +576,16 @@ class FeesStudentController extends Controller
         $total_credits = 0;
 
         if($request->type == 1){
-            $fee_amount = $request->amount;
+            $category = FeesCategory::where('id',$request->category)->first();
+            $fee_amount = $category->amount;
         }
         else {
             $enroll = StudentEnroll::find($request->student);
             foreach($enroll->subjects as $subject){
                 $total_credits = $total_credits + $subject->credit_hour;
             }
-
-            $fee_amount = $total_credits * $request->amount;
+            $category = FeesCategory::where('id',$request->category)->first();
+            $fee_amount = $total_credits * $category->amount;
         }
 
         // Assign Fees
@@ -618,6 +620,7 @@ class FeesStudentController extends Controller
 
 
         $data['categories'] = FeesCategory::where('status', '1')->orderBy('title', 'asc')->get();
+        // $data['discounts'] = FeesDiscount::where('status', '1')->orderBy('title', 'asc')->get();
 
         // Filter Student
         $students = StudentEnroll::where('status', '1');
@@ -694,5 +697,25 @@ class FeesStudentController extends Controller
 
             return redirect()->back();
         }
+    }
+    public function getCategory(Request $request)
+    {
+        $data['category'] = FeesCategory::where('id', $request->category)->first();
+        return $data;
+    }
+
+    public function getCategoryFee(Request $request)
+    {
+        $data['category'] = FeesCategory::where('id', $request->category)->first();
+        $data['discount'] = FeesDiscount::with('feesCategories')->whereHas('feesCategories', function ($query) use ($request){
+            $query->where('fees_category_id', $request->category);
+        })->orderBy('title', 'asc')->get();
+        return $data;     
+    }
+
+    public function getDiscount(Request $request)
+    {
+        $data['discount'] = FeesDiscount::where('id', $request->discount)->first();
+        return $data;
     }
 }

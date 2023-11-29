@@ -20,6 +20,14 @@
                           {{ __('required_field') }} {{ __('field_title') }}
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="amount" class="form-label">{{ __('Cantidad ($)') }} <span>*</span></label>
+                        <input type="number" class="form-control" name="amount" id="amount" value="{{ $row->amount }}" required>
+
+                        <div class="invalid-feedback">
+                          {{ __('required_field') }} {{ __('field_amount') }}
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label for="status" class="form-label">{{ __('select_status') }}</label>

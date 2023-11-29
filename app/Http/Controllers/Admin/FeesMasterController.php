@@ -13,6 +13,7 @@ use App\Models\Section;
 use App\Models\Session;
 use App\Models\Faculty;
 use App\Models\Fee;
+use App\Models\Student;
 use Toastr;
 use Auth;
 use DB;
@@ -150,7 +151,6 @@ class FeesMasterController extends Controller
         $data['rows'] = $masters->orderBy('id', 'desc')
                                 ->get();
 
-
         return view($this->view.'.index', $data);
     }
 
@@ -257,6 +257,10 @@ class FeesMasterController extends Controller
             if(!empty($request->section) && $request->section != '0'){
                 $enrolls->where('section_id', $section);
             }
+            if(!empty($request->student) && $request->student != '0'){
+                $student = Student::where('student_id',$request->student)->firstOrFail();
+                $enrolls->where('student_id', $student->id);
+            }
 
             $enrolls->with('student')->whereHas('student', function ($query){
                 $query->where('status', '1');
@@ -272,7 +276,7 @@ class FeesMasterController extends Controller
 
             })->all();
         }
-
+        // return $data;
 
         return view($this->view.'.create', $data);
     }
