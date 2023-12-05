@@ -52,7 +52,7 @@ class EnrollSubjectController extends Controller
         $data['faculties'] = Faculty::where('status', '1')
                             ->orderBy('title', 'asc')->get();
         $data['rows'] = EnrollSubject::orderBy('id', 'desc')->get();
-
+        // return $data;
         return view($this->view.'.index', $data);
     }
 

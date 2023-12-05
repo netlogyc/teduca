@@ -66,7 +66,8 @@
                                         <td>{{ $row->section->title }}</td>
                                         <td>
                                             @foreach($row->subjects->sortBy('code') as $key => $subject)
-                                                <span class="badge badge-primary">{{ $subject->code }}</span>
+                                                {{-- <span class="badge badge-primary">{{ $subject->code }}</span> --}}
+                                                <span class="badge badge-primary">{{ $subject->title }}</span>
                                                 <br/>
                                             @endforeach
                                         </td>
