@@ -18,7 +18,7 @@
                         <div class="card-block">
                             <!-- Form Start -->
                             <div class="form-group">
-                                <label for="title" class="form-label">{{ __('field_title') }} <span>*</span></label>
+                                <label for="title" class="form-label">{{ __('Periodo académico') }} <span>*</span></label>
                                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
 
                                 <div class="invalid-feedback">
@@ -76,7 +76,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5> {{ __('Semestres y programas a ofertar') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
@@ -85,7 +85,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ __('field_title') }}</th>
+                                        <th>{{ __('Periodo académico') }}</th>
                                         <th>{{ __('field_date') }}</th>
                                         <th>{{ __('field_program') }}</th>
                                         <th>{{ __('field_status') }}</th>

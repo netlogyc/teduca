@@ -13,12 +13,12 @@
                 @csrf
                     <div class="card">
                         <div class="card-header">
-                            <h5>{{ __('btn_create') }} {{ $title }}</h5>
+                            <h5>Creación de Secciones</h5>
                         </div>
                         <div class="card-block">
                             <!-- Form Start -->
                             <div class="form-group">
-                                <label for="title" class="form-label">{{ __('field_title') }} <span>*</span></label>
+                                <label for="title" class="form-label">{{ __('Nombre de sección') }} <span>*</span></label>
                                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
 
                                 <div class="invalid-feedback">
@@ -65,7 +65,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5>{{ __('Semestres ofertados por sección') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
@@ -74,7 +74,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ __('field_title') }}</th>
+                                        <th>{{ __('Sección') }}</th>
                                         <th>{{ __('field_program') }} > {{ __('field_semester') }}</th>
                                         <th>{{ __('field_status') }}</th>
                                         <th>{{ __('field_action') }}</th>

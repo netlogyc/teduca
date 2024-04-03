@@ -10,7 +10,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5>{{ __('Lista de Asignatura') }}</h5>
                     </div>
                     <div class="card-block">
                         @can($access.'-create')
@@ -90,7 +90,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ __('field_title') }}</th>
+                                        <th>{{ __('Asignatura') }}</th>
                                         <th>{{ __('field_code') }}</th>
                                         <th>{{ __('field_credit_hour_short') }}</th>
                                         <th>{{ __('field_class_type') }}</th>

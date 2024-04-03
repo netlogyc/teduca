@@ -44,7 +44,7 @@
                                 @include('common.inc.common_search_filter')
 
                                 <div class="form-group col-md-3">
-                                    <label for="type">{{ __('field_type') }} <span>*</span></label>
+                                    <label for="type">{{ __('Tipo de evaluación') }} <span>*</span></label>
                                     <select class="form-control" name="type" id="type" required>
                                         <option value="">{{ __('select') }}</option>
                                         @foreach( $types as $type )

@@ -11,7 +11,7 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>{{ __('modal_edit') }} {{ $title }}</h5>
+                            <h5>{{ __('modal_edit') }} Asignatura</h5>
                         </div>
                         <div class="card-block">
                             <a href="{{ route($route . '.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i>
@@ -29,7 +29,7 @@
                                 <div class="row">
                                     <!-- Form Start -->
                                     <div class="form-group col-md-4">
-                                        <label for="title" class="form-label">{{ __('field_title') }}
+                                        <label for="title" class="form-label">{{ __('Asignatura') }}
                                             <span>*</span></label>
                                         <input type="text" class="form-control" name="title" id="title"
                                             value="{{ $row->title }}" required>
@@ -153,7 +153,8 @@
                                             data-v-min="0"> --}}
                                         <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
                                             <option value="">{{ __('select') }}</option>
-                                            <option value="Transferencia interna = 3.0 / Transferencia externa =3.4" @if ($row->minimum_grade_approved == 'Transferencia interna = 3.0 / Transferencia externa =3.4') selected @endif>{{ __('Transferencia interna = 3.0 / Transferencia externa =3.4') }}</option>
+                                            <option value="Transferencia interna = 3.0" @if ($row->minimum_grade_approved == 'Transferencia interna = 3.0') selected @endif>{{ __('Transferencia interna = 3.0') }}</option>
+                                            <option value="Transferencia externa = 3.4" @if ($row->minimum_grade_approved == 'Transferencia externa = 3.4') selected @endif>{{ __('Transferencia externa = 3.4') }}</option>
                                         </select>
 
                                         <div class="invalid-feedback">

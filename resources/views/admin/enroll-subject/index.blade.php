@@ -13,14 +13,14 @@
                 @csrf
                     <div class="card">
                         <div class="card-header">
-                            <h5>{{ __('btn_create') }} {{ $title }}</h5>
+                            <h5> {{ $title }}</h5>
                         </div>
                         <div class="card-block">
                             <!-- Form Start -->
                             @include('common.inc.subject_enroll_filter')
                       
                             <div class="form-group">
-                                <label for="subject">{{ __('field_subject') }} <span>* ({{ __('select_multiple') }})</span></label>
+                                <label for="subject">{{ __('Asignatura') }} <span>* ({{ __('select_multiple') }})</span></label>
                                 <select class="form-control subject select2" name="subjects[]" id="subject" multiple required>
                                 </select>
 
@@ -40,7 +40,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5>{{ __('Inscribir lista de asignaturas') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
@@ -51,8 +51,8 @@
                                         <th>#</th>
                                         <th>{{ __('field_program') }}</th>
                                         <th>{{ __('field_semester') }}</th>
-                                        <th>{{ __('field_section') }}</th>
-                                        <th>{{ __('field_subject') }}</th>
+                                        <th>{{ __('Oferta de semestres ') }}</th>
+                                        <th>{{ __('Asignatura') }}</th>
                                         <th>{{ __('field_status') }}</th>
                                         <th>{{ __('field_action') }}</th>
                                     </tr>

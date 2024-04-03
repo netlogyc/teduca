@@ -37,7 +37,7 @@ class ProgramController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $data['title'] = $this->title;
@@ -48,7 +48,13 @@ class ProgramController extends Controller
         
         $data['faculties'] = Faculty::where('status', '1')
                             ->orderBy('title', 'asc')->get();
-        $data['rows'] = Program::orderBy('title', 'asc')->get();
+        
+        if(!empty($request->faculty)){
+            $data['rows'] = Program::where('faculty_id',$request->faculty)->orderBy('title', 'asc')->get();
+        }
+        else{
+            $data['rows'] = Program::orderBy('title', 'asc')->get();
+        }
 
         return view($this->view.'.index', $data);
     }

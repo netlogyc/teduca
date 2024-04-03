@@ -29,7 +29,7 @@
 	</div>
 </div>
 <div class="form-group col-md-3">
-  <label for="session">{{ __('field_session') }} <span>*</span></label>
+  <label for="session">{{ __('Periodo Académico') }} <span>*</span></label>
   <select class="form-control session" name="session" id="session" required>
 		<option value="">{{ __('select') }}</option>
 		@if(isset($sessions))
@@ -59,7 +59,7 @@
 	</div>
 </div>
 <div class="form-group col-md-3">
-  <label for="section">{{ __('field_section') }} <span>*</span></label>
+  <label for="section">{{ __('Oferta de Semestres') }} <span>*</span></label>
 	<select class="form-control section" name="section" id="section" required>
 		<option value="">{{ __('select') }}</option>
 		@if(isset($sections))

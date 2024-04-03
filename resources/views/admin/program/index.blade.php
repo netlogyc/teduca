@@ -103,6 +103,28 @@
                         <h5>{{ $title }} {{ __('list') }}</h5>
                     </div>
                     <div class="card-block">
+                        <form class="needs-validation" novalidate method="get" action="{{ route($route.'.index') }}">
+                            <div class="row gx-2">
+                                <div class="form-group col-md-6">
+                                    <label for="hostel">{{ __('Facultad') }}</label>
+                                    <select class="form-control" name="faculty" id="faculty">
+                                        <option value="">{{ __('all') }}</option>
+                                        @foreach( $faculties as $faculty )
+                                            <option value="{{ $faculty->id }}" >{{ $faculty->title }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <div class="invalid-feedback">
+                                      {{ __('required_field') }} {{ __('field_hostel') }}
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <button type="submit" class="btn btn-info btn-filter"><i class="fas fa-search"></i> {{ __('btn_filter') }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
                             <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">

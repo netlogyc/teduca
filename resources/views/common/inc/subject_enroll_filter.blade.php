@@ -44,7 +44,7 @@
 	</div>
 </div>
 <div class="form-group">
-  <label for="section">{{ __('field_section') }} <span>*</span></label>
+  <label for="section">{{ __('Oferta de semestres ') }} <span>*</span></label>
   <select class="form-control section" name="section" id="section" required>
 		<option value="">{{ __('select') }}</option>
 		@if(isset($sections))
