@@ -100,7 +100,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5>Lista de programas</h5>
                     </div>
                     <div class="card-block">
                         <form class="needs-validation" novalidate method="get" action="{{ route($route.'.index') }}">
