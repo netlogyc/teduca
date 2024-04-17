@@ -136,7 +136,7 @@
                                             {{ __('required_field') }} {{ __('passing_grade') }}
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4" >
                                         <label for="homologable">{{ __('homologable') }} <span>*</span></label>
                                         <select class="form-control" name="homologable" id="homologable" required>
                                             <option value="">{{ __('select') }}</option>
@@ -149,9 +149,9 @@
                                     </div>
 
                                    
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4" id="minimo" style="display: none;">
                                         <label for="credit_hour">{{ __('minimum_grade_approved') }} <span>*</span></label>
-                                        <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
+                                        <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" >
                                             <option value="">{{ __('select') }}</option>
                                             <option value="3.0" >{{ __('Transferencia interna = 3.0') }}</option>
                                             <option value="3.4" >{{ __('Transferencia externa = 3.4') }}</option>
@@ -297,4 +297,16 @@
     </div>
     <!-- End Content-->
 
+@endsection
+@section('page_js')
+<script type="text/javascript">
+"use strict";
+    $('#homologable').change(function() {
+            if ($(this).val() === 'SI') {
+                $('#minimo').show();
+            } else {
+                $('#minimo').hide();
+            }
+        });
+</script>
 @endsection

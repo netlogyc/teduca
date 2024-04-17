@@ -136,7 +136,7 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="homologable">{{ __('homologable') }} <span>*</span></label>
-                                        <select class="form-control" name="homologable" id="class_type" required>
+                                        <select class="form-control" name="homologable" id="homologable" required>
                                             <option value="">{{ __('select') }}</option>
                                             <option value="SI" @if ($row->homologable == 'SI') selected @endif>{{ __('SI') }}</option>
                                             <option value="NO" @if ($row->homologable == 'NO') selected @endif>{{ __('NO') }}</option>
@@ -145,13 +145,13 @@
                                             {{ __('required_field') }} {{ __('homologable') }}
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4" id="minimo" style="display: none;">
                                         <label for="credit_hour">{{ __('minimum_grade_approved') }} <span>*</span></label>
                                 
                                         <select class="form-control" name="minimum_grade_approved" id="minimum_grade_approved" required>
                                             <option value="">{{ __('select') }}</option>
-                                            <option value="3.0" @if ($row->minimum_grade_approved == 'Transferencia interna = 3.0') selected @endif>{{ __('Transferencia interna = 3.0') }}</option>
-                                            <option value="3.4" @if ($row->minimum_grade_approved == 'Transferencia externa = 3.4') selected @endif>{{ __('Transferencia externa = 3.4') }}</option>
+                                            <option value="3.0" @if ($row->minimum_grade_approved == '3.0') selected @endif>{{ __('Transferencia interna = 3.0') }}</option>
+                                            <option value="3.4" @if ($row->minimum_grade_approved == '3.4') selected @endif>{{ __('Transferencia externa = 3.4') }}</option>
                                         </select>
 
                                         <div class="invalid-feedback">
@@ -324,3 +324,16 @@
     <!-- End Content-->
 
 @endsection
+@section('page_js')
+<script type="text/javascript">
+"use strict";
+    $('#homologable').change(function() {
+            if ($(this).val() === 'SI') {
+                $('#minimo').show();
+            } else {
+                $('#minimo').hide();
+            }
+        });
+</script>
+@endsection
+
