@@ -152,7 +152,7 @@ class SubjectController extends Controller
             
             'passing_grade'=> 'required|numeric|between:0,5',
             'homologable'=> 'required',
-            'minimum_grade_approved'=> 'required|numeric|between:0,5',
+            'minimum_grade_approved'=> 'required',
 
             'class_type' => 'required',
             'subject_type' => 'required',
@@ -269,7 +269,7 @@ class SubjectController extends Controller
 
             'passing_grade'=> 'required|numeric|between:0,5',
             'homologable'=> 'required',
-            'minimum_grade_approved'=> 'required|numeric|between:0,5',
+            'minimum_grade_approved'=> 'required',
 
             'class_type' => 'required',
             'subject_type' => 'required',
