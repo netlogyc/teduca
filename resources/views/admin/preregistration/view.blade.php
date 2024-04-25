@@ -14,7 +14,7 @@
 @section('content')
 
 <div class="conten">
-    <iframe scrolling="no" class="iframe-responsive"  width="100%"  src="https://dev.teduca.co/preinscripcion/form-preinscripcion/">
+    <iframe scrolling="si" class="iframe-responsive"  width="100%"  src="https://dev.teduca.co/preinscripcion/form-preinscripcion/">
     </iframe>
 </div>
 
