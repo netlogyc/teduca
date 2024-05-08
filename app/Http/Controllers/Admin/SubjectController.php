@@ -139,7 +139,7 @@ class SubjectController extends Controller
         $request->validate([
 
             'title' => 'required|max:191',
-            'code' => 'required|max:191|unique:subjects,code',
+            'code' => 'required|max:191',
             'field_sufficiency'=>'required',
 
             'credit_hour' => 'required',
@@ -256,7 +256,7 @@ class SubjectController extends Controller
         // Field Validation
         $request->validate([
             'title' => 'required|max:191',
-            'code' => 'required|max:191|unique:subjects,code,'.$subject->id,
+            'code' => 'required|max:191',
             'field_sufficiency'=>'required',
 
             'credit_hour' => 'required',
