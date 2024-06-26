@@ -158,11 +158,13 @@ class StudentController extends Controller
 
         // Student Filter
         $students = Student::where('status', '1');
+        
         if($faculty != 0){
             $students->with('program')->whereHas('program', function ($query) use ($faculty){
                 $query->where('faculty_id', $faculty);
-            });
-        }
+                });
+                }
+            
         $students->with('currentEnroll')->whereHas('currentEnroll', function ($query) use ($program, $session, $semester, $section){
             if($program != 0){
             $query->where('program_id', $program);
@@ -177,6 +179,7 @@ class StudentController extends Controller
             $query->where('section_id', $section);
             }
         });
+        // return response()->json( $students);
         if(!empty($request->status)){
             $students->with('statuses')->whereHas('statuses', function ($query) use ($status){
                 $query->where('status_type_id', $status);
@@ -197,8 +200,9 @@ class StudentController extends Controller
 
         $data['print'] = IdCardSetting::where('slug', 'student-card')->first();
 
-
-        return view($this->view.'.index', $data);
+        
+        return $rows;
+        // return view($this->view.'.index', $data);
     }
 
     /**
@@ -263,7 +267,12 @@ class StudentController extends Controller
             $student->admission_date = $request->admission_date;
 
             $student->first_name = $request->first_name;
+            $student->second_name = $request->second_name;
+
             $student->last_name = $request->last_name;
+            $student->second_surname = $request->second_surname;
+
+
             $student->father_name = $request->father_name;
             $student->mother_name = $request->mother_name;
             $student->father_occupation = $request->father_occupation;
@@ -309,6 +318,7 @@ class StudentController extends Controller
             $student->status = '1';
             $student->created_by = Auth::guard('web')->user()->id;
             $student->save();
+            
 
 
             // Attach Status

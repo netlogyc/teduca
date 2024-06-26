@@ -26,7 +26,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="start_date" class="form-label">{{ __('field_start_date') }} <span>*</span></label>
                                 <input type="date" class="form-control date" name="start_date" id="start_date" value="{{ old('start_date') }}" required>
 
@@ -42,7 +42,7 @@
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_end_date') }}
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="amount" class="form-label">{{ __('field_amount') }} ({!! $setting->currency_symbol !!} / %) <span>*</span></label>
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <br/>
                                 <label for="statuses" class="form-label">{{ __('field_student') }} {{ __('field_status') }} <span>* ({{ __('select_multiple') }})</span></label>
                                 <select class="form-control select2" name="statuses[]" id="statuses" multiple required>
@@ -92,7 +92,7 @@
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_student') }} {{ __('field_status') }}
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Form End -->
                         </div>
                         <div class="card-footer">
@@ -105,21 +105,21 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        <h5>{{ __('Descuento de tarifas') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
                         <div class="table-responsive">
-                            <table id="basic-table" class="display table nowrap table-striped table-hover" style="width:100%">
+                            <table id="basic-table" class="text-center display table nowrap table-striped table-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>{{ __('field_title') }}</th>
-                                        <th>{{ __('field_date') }}</th>
-                                        <th>{{ __('field_amount') }}</th>
-                                        <th>{{ __('field_fees_type') }}</th>
-                                        <th>{{ __('field_student') }} {{ __('field_status') }}</th>
-                                        <th>{{ __('field_action') }}</th>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">{{ __('field_title') }}</th>
+                                        {{-- <th>{{ __('field_date') }}</th> --}}
+                                        <th class="text-center">{{ __('Porcentaje') }}</th>
+                                        <th class="text-center">{{ __('field_fees_type') }}</th>
+                                        {{-- <th>{{ __('field_student') }} {{ __('field_status') }}</th> --}}
+                                        <th class="text-center">{{ __('field_action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -127,7 +127,7 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $row->title }}</td>
-                                        <td>
+                                        {{-- <td>
                                             @if(isset($setting->date_format))
                                             {{ date($setting->date_format, strtotime($row->start_date)) }}
                                             @else
@@ -139,7 +139,7 @@
                                             @else
                                             {{ date("Y-m-d", strtotime($row->end_date)) }}
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>
                                           @if(isset($setting->decimal_place))
                                           {{ number_format((float)$row->amount, $setting->decimal_place, '.', '') }} 
@@ -157,11 +157,11 @@
                                             <span class="badge badge-primary">{{ $category->title }}</span><br>
                                             @endforeach
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             @foreach($row->statusTypes as $key => $statusType)
                                             <span class="badge badge-primary">{{ $statusType->title }}</span><br>
                                             @endforeach
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             @can($access.'-edit')
                                             <a href="{{ route($route.'.edit', $row->id) }}" class="btn btn-icon btn-primary btn-sm">

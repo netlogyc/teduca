@@ -127,6 +127,12 @@
                                         {{ __('marital_status_widowed') }}
                                         @elseif( $row->marital_status == 4 )
                                         {{ __('marital_status_divorced') }}
+                                        @elseif( $row->marital_status == 6 )
+                                        {{ __('marital_status_separado') }}
+                                        @elseif( $row->marital_status == 7 )
+                                        {{ __('marital_status_religioso') }}
+                                        @elseif( $row->marital_status == 8 )
+                                        {{ __('marital_status_union') }}
                                         @elseif( $row->marital_status == 5 )
                                         {{ __('marital_status_other') }}
                                         @endif

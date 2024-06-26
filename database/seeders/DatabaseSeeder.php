@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LeaveTypeSeeder::class);
         $this->call(ExamTypeSeeder::class);
         $this->call(ResultContributionSeeder::class);
+        $this->call(StudentsTableSeeder::class);
     }
 }

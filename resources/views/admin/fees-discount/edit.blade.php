@@ -32,7 +32,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="start_date" class="form-label">{{ __('field_start_date') }} <span>*</span></label>
                                 <input type="date" class="form-control date" name="start_date" id="start_date" value="{{ $row->start_date }}" required>
 
@@ -48,7 +48,7 @@
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_end_date') }}
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="amount" class="form-label">{{ __('field_amount') }} ({!! $setting->currency_symbol !!} / %) <span>*</span></label>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <br/>
                                 <label for="statuses" class="form-label">{{ __('field_student') }} {{ __('field_status') }} <span>* ({{ __('select_multiple') }})</span></label>
                                 <select class="form-control select2" name="statuses[]" id="statuses" multiple required>
@@ -98,7 +98,7 @@
                                 <div class="invalid-feedback">
                                   {{ __('required_field') }} {{ __('field_student') }} {{ __('field_status') }}
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Form End -->
                         </div>
                         <div class="card-footer">

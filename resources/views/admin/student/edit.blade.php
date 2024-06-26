@@ -140,6 +140,9 @@
                                     <option value="2" @if( $row->marital_status == 2 ) selected @endif>{{ __('marital_status_married') }}</option>
                                     <option value="3" @if( $row->marital_status == 3 ) selected @endif>{{ __('marital_status_widowed') }}</option>
                                     <option value="4" @if( $row->marital_status == 4 ) selected @endif>{{ __('marital_status_divorced') }}</option>
+                                    <option value="6" @if( $row->marital_status == 6 ) selected @endif>{{ __('marital_status_separado') }}</option>
+                                    <option value="7" @if( $row->marital_status == 7 ) selected @endif>{{ __('marital_status_religioso') }}</option>
+                                    <option value="8" @if( $row->marital_status == 8 ) selected @endif>{{ __('marital_status_union') }}</option>
                                     <option value="5" @if( $row->marital_status == 5 ) selected @endif>{{ __('marital_status_other') }}</option>
                                 </select>
 

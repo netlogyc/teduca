@@ -74,27 +74,27 @@ class FeesDiscountController extends Controller
         //Field Validation
         $request->validate([
             'title' => 'required',
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            // 'start_date' => 'required|date|after_or_equal:today',
+            // 'end_date' => 'required|date|after_or_equal:start_date',
             'amount' => 'required|numeric',
             'type' => 'required|integer',
             'categories' => 'required',
-            'statuses' => 'required',
+            // 'statuses' => 'required',
         ]);
 
 
         // Insert Data
         $feesDiscount = new FeesDiscount;
         $feesDiscount->title = $request->title;
-        $feesDiscount->start_date = $request->start_date;
-        $feesDiscount->end_date = $request->end_date;
+        // $feesDiscount->start_date = $request->start_date;
+        // $feesDiscount->end_date = $request->end_date;
         $feesDiscount->amount = $request->amount;
         $feesDiscount->type = $request->type;
         $feesDiscount->save();
 
         // Create Attach
         $feesDiscount->feesCategories()->attach($request->categories);
-        $feesDiscount->statusTypes()->attach($request->statuses);
+        // $feesDiscount->statusTypes()->attach($request->statuses);
 
 
         Toastr::success(__('msg_created_successfully'), __('msg_success'));
@@ -148,20 +148,20 @@ class FeesDiscountController extends Controller
         //Field Validation
         $request->validate([
             'title' => 'required',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            // 'start_date' => 'required|date',
+            // 'end_date' => 'required|date|after_or_equal:start_date',
             'amount' => 'required|numeric',
             'type' => 'required|integer',
             'categories' => 'required',
-            'statuses' => 'required',
+            // 'statuses' => 'required',
         ]);
 
 
         // Update Data
         $feesDiscount = FeesDiscount::findOrFail($id);
         $feesDiscount->title = $request->title;
-        $feesDiscount->start_date = $request->start_date;
-        $feesDiscount->end_date = $request->end_date;
+        // $feesDiscount->start_date = $request->start_date;
+        // $feesDiscount->end_date = $request->end_date;
         $feesDiscount->amount = $request->amount;
         $feesDiscount->type = $request->type;
         // $feesDiscount->status = $request->status;
@@ -169,7 +169,7 @@ class FeesDiscountController extends Controller
 
         // Update Attach
         $feesDiscount->feesCategories()->sync($request->categories);
-        $feesDiscount->statusTypes()->sync($request->statuses);
+        // $feesDiscount->statusTypes()->sync($request->statuses);
         
 
         Toastr::success(__('msg_updated_successfully'), __('msg_success'));

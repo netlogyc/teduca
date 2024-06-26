@@ -131,9 +131,21 @@
                                                         <option value="4"
                                                             @if (old('marital_status') == 4) selected @endif>
                                                             {{ __('marital_status_divorced') }}</option>
+                                                        <option value="6"
+                                                            @if (old('marital_status') == 6) selected @endif>
+                                                            {{ __('marital_status_separado') }}</option>
+
+                                                        <option value="7"
+                                                            @if (old('marital_status') == 7) selected @endif>
+                                                            {{ __('marital_status_religioso') }}</option>
+
+                                                        <option value="8"
+                                                            @if (old('marital_status') == 8) selected @endif>
+                                                            {{ __('marital_status_union') }}</option>
                                                         <option value="5"
                                                             @if (old('marital_status') == 5) selected @endif>
                                                             {{ __('marital_status_other') }}</option>
+
                                                     </select>
 
                                                     <div class="invalid-feedback">

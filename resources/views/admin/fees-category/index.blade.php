@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="amount" class="form-label">{{ __('Cantidad ($)') }} <span>*</span></label>
+                                <label for="amount" class="form-label">{{ __('Valor o precio($)') }} <span>*</span></label>
                                 <input type="number" class="form-control" name="amount" id="amount" value="{{ old('amount') }}" required>
 
                                 <div class="invalid-feedback">
@@ -45,7 +45,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ $title }} {{ __('list') }}</h5>
+                        {{-- <h5>{{ $title }} {{ __('list') }}</h5> --}}
+                        <h5>{{ __('Tipos de tarifas') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
@@ -55,7 +56,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{ __('field_title') }}</th>
-                                        <th>{{ __('field_amount') }}</th>
+                                        <th>{{ __('Valor o precio') }}</th>
                                         <th>{{ __('field_status') }}</th>
                                         <th>{{ __('field_action') }}</th>
                                     </tr>
