@@ -44,6 +44,7 @@ class ProfileController extends Controller
         
         $data['row'] = Student::where('id', Auth::guard('student')->user()->id)->firstOrFail();
 
+        // dd($data['row']);
         return view($this->view.'.index', $data);
     }
 

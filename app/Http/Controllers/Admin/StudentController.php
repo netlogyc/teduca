@@ -201,8 +201,8 @@ class StudentController extends Controller
         $data['print'] = IdCardSetting::where('slug', 'student-card')->first();
 
         
-        return $rows;
-        // return view($this->view.'.index', $data);
+        // return $rows;
+        return view($this->view.'.index', $data);
     }
 
     /**

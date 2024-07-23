@@ -81,7 +81,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5>{{ __('Lista de grupos') }}</h5>
+                        <h5>{{ __('Lista de Pensum') }}</h5>
                     </div>
                     <div class="card-block">
                         <!-- [ Data table ] start -->
@@ -90,7 +90,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>{{ __('Grupo') }}</th>
+                                        <th>{{ __('Pensum') }}</th>
                                         <th>{{ __('field_start_date') }}</th>
                                         <th>{{ __('field_program') }}</th>
                                         <th>{{ __('field_jornada') }}</th>

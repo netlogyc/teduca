@@ -97,6 +97,7 @@ class DashboardController extends Controller
                             ->get();
 
 
+        // dd($data);
         return view($this->view.'.index', $data);
     }
 }
