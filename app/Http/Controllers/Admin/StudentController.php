@@ -236,7 +236,7 @@ class StudentController extends Controller
     {
         // Field Validation
         $request->validate([
-            'student_id' => 'required|unique:students,student_id',
+            'student_id' => 'required',
             'batch' => 'required',
             'program' => 'required',
             'session' => 'required',
@@ -244,7 +244,7 @@ class StudentController extends Controller
             'section' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email|unique:students,email',
+            'email' => 'required|email',
             'phone' => 'required',
             'gender' => 'required',
             'dob' => 'required|date',
@@ -258,6 +258,7 @@ class StudentController extends Controller
 
         // Insert Data
         try{
+          
             DB::beginTransaction();
             
             $student = new Student;
@@ -317,7 +318,9 @@ class StudentController extends Controller
             $student->signature = $this->uploadImage($request, 'signature', $this->path, 300, 100);
             $student->status = '1';
             $student->created_by = Auth::guard('web')->user()->id;
+
             $student->save();
+           
             
 
 
@@ -405,6 +408,7 @@ class StudentController extends Controller
         }
         catch(\Exception $e){
 
+           
             Toastr::error(__('msg_created_error'), __('msg_error'));
 
             return redirect()->back();

@@ -70,6 +70,41 @@
             <!-- [ Auth Nav ] start -->
             @auth
             <ul class="navbar-nav ms-auto">
+                
+                <li>
+                    <div class="dropdown drp-user">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                            
+                            <i class="fas fa-school"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right notification">
+                            <div class="noti-head">
+                                <h6 class="d-inline-block m-b-0 text-center">{{ trans_choice('Programas', 2) }}</h6>
+                            </div>
+                            
+                            <ul class="noti-body">
+                                @if (session('programas'))
+                                    @foreach ( session('programas') as $key => $program )
+                                        {{-- <form action="" method="POST">
+                                            @csrf
+                                            <li class="notification btn">{{ ucfirst(strtolower( $program))}}</li>
+                                        </form> --}}
+                                        <form action="{{ route('student.login.with.program') }}" method="POST" style="display:inline;">
+                                
+                                            @csrf
+                                            <input type="hidden" name="program_id" value="{{ $key }}"> 
+                                            <input type="hidden" name="email" value="{{ session('email') }}">
+                                            <button type="submit" class="notification btn px-2 py-1">{{ ucfirst(strtolower($program)) }}</button>
+                                        </form>
+                                    @endforeach
+                                @else
+                                    <li>No se encontraron datos del usuario en la sesión.</li>
+                                @endif
+                        
+                            </ul>
+                        </div>
+                    </div>
+                </li>
                 <!-- Language -->
                 <li>
                     <div class="dropdown">

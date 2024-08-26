@@ -10,6 +10,7 @@ use App\Models\Session;
 use App\Models\Student;
 use App\Models\Event;
 use App\Models\Fee;
+use App\Models\Program;
 use Carbon\Carbon;
 use Auth;
 
@@ -38,10 +39,19 @@ class DashboardController extends Controller
         //
         $data['title'] = $this->title;
         $data['route'] = $this->route;
-        $data['view'] = $this->view;
-
+        $data['view'] = $this->view; 
 
         $student_id = Auth::guard('student')->user()->id;
+        $student = Student::find($student_id);
+
+        $students = Student::with('program')->where('email',$student->email)->get();
+        $students = $students->pluck('program.title','program_id');
+
+        // dd($students);
+
+        session(['programas' => $students,
+                    'email'=>$student->email]);
+
         $current_session = Session::where('status', '1')->where('current', '1')->first();
 
         if(isset($current_session)){

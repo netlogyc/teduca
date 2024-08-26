@@ -413,39 +413,39 @@ Route::prefix('student')->name('student.')->namespace('Student')->group(function
         Route::get('/login','LoginController@showLoginForm')->name('login');
         Route::post('/login','LoginController@login')->name('login.store');
         Route::post('/logout','LoginController@logout')->name('logout');
-
+        
         // Register Routes
         // Route::get('/register','RegisterController@showRegisterForm')->name('register');
         // Route::post('/register','RegisterController@register')->name('register.store');
-
+        
         // Forgot Password Routes
         // Route::get('/password/reset','ForgotPasswordController@showLinkRequestForm')->name('password.request');
         // Route::post('/password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-
+        
         // Reset Password Routes
         // Route::get('/password/reset/{token}/{email}','ResetPasswordController@showResetForm')->name('password.reset');
         // Route::post('/password/reset','ResetPasswordController@reset')->name('password.update');
     });
-
+    
 });
 
 
 
 // Student Dashboard Routes
 Route::middleware(['auth:student', 'XSS'])->prefix('student')->name('student.')->namespace('Student')->group(function () {
-
+    
     // Dashboard Route
     // Route::get('/', 'DashboardController@index')->name('dashboard.index');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-
+    
     // Transcript Routes
     Route::get('transcript', 'TranscriptController@index')->name('transcript.index');
-
+    
     // Assignment Routes
     Route::get('assignment', 'AssignmentController@index')->name('assignment.index');
     Route::get('assignment/{id}', 'AssignmentController@show')->name('assignment.show');
     Route::post('assignment/{id}/update', 'AssignmentController@update')->name('assignment.update');
-
+    
     // Class Routine Routes
     Route::get('class-routine', 'ClassRoutineController@index')->name('class-routine.index');
 
@@ -454,30 +454,30 @@ Route::middleware(['auth:student', 'XSS'])->prefix('student')->name('student.')-
 
     // Exam Routine Routes
     Route::get('exam-routine', 'ExamRoutineController@index')->name('exam-routine.index');
-
+    
     // Fees Routes
     Route::get('fees', 'FeesController@index')->name('fees.index');
-
+    
     // Library Routes
     Route::get('library', 'LibraryController@index')->name('library.index');
 
     // Calendar Routes
     // Route::get('event-calendar', 'EventController@calendar')->name('event.calendar');
-
+    
     // Notice Routes
     Route::get('notice', 'NoticeController@index')->name('notice.index');
     Route::get('notice/{id}', 'NoticeController@show')->name('notice.show');
-
+    
     // Leave Routes
     Route::resource('leave', 'LeaveController');
-
+    
     // Download Routes
     Route::get('download', 'DownloadCenterController@index')->name('download.index');
     Route::get('download/{id}', 'DownloadCenterController@show')->name('download.show');
-
+    
     // Profile Routes
     Route::resource('profile','ProfileController');
     Route::get('profile/account', 'ProfileController@account')->name('profile.account');
-    // Route::post('profile/changemail', 'ProfileController@changeMail')->name('profile.changemail');
-    // Route::post('profile/changepass', 'ProfileController@changePass')->name('profile.changepass');
+    //change prorgram
+    Route::post('/login-with-program','ChangeProgramController@loginWithProgram')->name('login.with.program');
 });

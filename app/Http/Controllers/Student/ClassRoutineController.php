@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\StudentEnroll;
 use Illuminate\Http\Request;
 use App\Models\ClassRoutine;
+use App\Models\Program;
 use App\Models\Session;
+use App\Models\Student;
 use Auth;
 
 class ClassRoutineController extends Controller
@@ -38,6 +40,8 @@ class ClassRoutineController extends Controller
         $data['view']      = $this->view;
         $data['path']      = $this->path;
 
+    
+
         $session = Session::where('status', '1')->where('current', '1')->first();
 
         if(isset($session)){
@@ -52,7 +56,7 @@ class ClassRoutineController extends Controller
         if(isset($enroll) && isset($session)){
         $data['rows'] = ClassRoutine::where('status', '1')
                         ->where('session_id', $enroll->session_id)
-                        ->where('program_id', $enroll->program_id)
+                        ->where('program_id', $enroll->program_id )
                         ->where('semester_id', $enroll->semester_id)
                         ->where('section_id', $enroll->section_id)
                         ->orderBy('start_time', 'asc')

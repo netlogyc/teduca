@@ -141,4 +141,6 @@ class LoginController extends Controller
 	        ->withInput()
 	        ->with('error', __('auth_login_failed'));
 	}
+
+	
 }

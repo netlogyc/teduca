@@ -41,6 +41,17 @@
                                         <div class="col-md-12">
                                             <fieldset class="row scheduler-border">
                                                 <div class="form-group col-md-6">
+                                                    <label for="email">{{ __('field_email') }} <span>*</span></label>
+                                                    <input type="email" class="form-control" name="email" id="email"
+                                                        value="{{ old('email') }}" required>
+
+                                                    <div class="invalid-feedback">
+                                                        {{ __('required_field') }} {{ __('field_email') }}
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="form-group col-md-6">
                                                     <label for="first_name">{{ __('field_first_name') }}
                                                         <span>*</span></label>
                                                     <input type="text" class="form-control" name="first_name"
@@ -74,15 +85,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group col-md-6">
-                                                    <label for="email">{{ __('field_email') }} <span>*</span></label>
-                                                    <input type="email" class="form-control" name="email" id="email"
-                                                        value="{{ old('email') }}" required>
-
-                                                    <div class="invalid-feedback">
-                                                        {{ __('required_field') }} {{ __('field_email') }}
-                                                    </div>
-                                                </div>
+                                                
 
                                                 <div class="form-group col-md-6">
                                                     <label for="gender">{{ __('field_gender') }} <span>*</span></label>
