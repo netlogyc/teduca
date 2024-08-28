@@ -23,7 +23,7 @@
   </div>
 </div>
 
-
+{{-- 
 <script type="text/javascript">
   $(document).ready(function() {
       $.ajax({
@@ -71,4 +71,36 @@
 
   });
 
-</script>
+</script> --}}
+<script type="text/javascript">
+    "use strict";
+    $("#present_province").on('change',function(e){
+        e.preventDefault();
+        var presentDistrict=$("#present_district");
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+          type:'POST',
+          url: "{{ route('filter-district') }}",
+          data:{
+            _token:$('input[name=_token]').val(),
+            province:$(this).val()
+          },
+          success:function(response){
+              // var jsonData=JSON.parse(response);
+              $('option', presentDistrict).remove();
+              $('#present_district').append('<option value="">{{ __("select") }}</option>');
+              $.each(response, function(){
+                $('<option/>', {
+                  'value': this.id,
+                  'text': this.title
+                }).appendTo('#present_district');
+              });
+            }
+    
+        });
+      });
+    </script>

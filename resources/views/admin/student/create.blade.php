@@ -286,7 +286,7 @@
                                     </div> --}}
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                             <fieldset class="row scheduler-border">
                                                 <legend>{{ __('field_present') }} {{ __('field_address') }}</legend>
 
@@ -302,15 +302,15 @@
                                                     </div>
                                                 </div>
                                             </fieldset>
-                                        </div>
+                                        </div> --}}
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <fieldset class="row scheduler-border">
                                                 <legend>{{ __('field_permanent') }} {{ __('field_address') }}</legend>
 
                                                 @include('common.inc.permanent_province')
 
-                                                <div class="form-group col-md-12">
+                                                <div class="form-group col-md-4">
                                                     <label for="permanent_address">{{ __('field_address') }}</label>
                                                     <input type="text" class="form-control" name="permanent_address"
                                                         id="permanent_address" value="{{ old('permanent_address') }}">
