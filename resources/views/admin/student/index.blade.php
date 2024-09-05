@@ -87,7 +87,7 @@
                                             #{{ $row->student_id }}
                                             </a>
                                         </td>
-                                        <td>{{ $row->first_name }} {{ $row->last_name }}</td>
+                                        <td>{{ $row->first_name }} {{ $row->second_name }} {{ $row->last_name }} {{ $row->second_surname }}</td>
                                         <td>{{ $row->program->shortcode ?? '' }}</td>
                                         <td>{{ $enroll->session->title ?? '' }}</td>
                                         <td>{{ $enroll->semester->title ?? '' }}</td>
