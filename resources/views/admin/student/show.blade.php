@@ -21,7 +21,7 @@
                       @endif
 
                   <div class="card-header">
-                    <h5 class="card-title">{{ $row->first_name }} {{ $row->last_name }}</h5>
+                    <h5 class="card-title">{{ $row->first_name }} {{ $row->second_name }} {{ $row->last_name }} {{ $row->second_surname }}</h5>
                   </div>
                   <ul class="list-group list-group-flush">
                     @if(isset($row->student_id))
