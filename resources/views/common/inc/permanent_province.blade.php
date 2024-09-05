@@ -1,6 +1,6 @@
 <div class="form-group col-md-4">
-    <label for="permanent_province">{{ __('field_province') }}</label>
-    <select class="form-control" name="permanent_province" id="permanent_province">
+    <label for="permanent_province">{{ __('field_province') }}<span>*</span></label>
+    <select class="form-control" name="permanent_province" id="permanent_province" required>
       <option>{{ __('select') }}</option>
       @foreach( $provinces as $province )
       <option value="{{ $province->id }}" @isset($row) {{ $row->permanent_province == $province->id ? 'selected' : '' }} @endisset>{{ $province->title }}</option>
@@ -13,8 +13,8 @@
   </div>
   
   <div class="form-group col-md-4">
-    <label for="permanent_district">{{ __('field_district') }}</label>
-    <select class="form-control" name="permanent_district" id="permanent_district">
+    <label for="permanent_district">{{ __('field_district') }}<span>*</span></label>
+    <select class="form-control" name="permanent_district" id="permanent_district" required>
       <option>{{ __('select') }}</option>
       @isset($row)
       @foreach($permanent_districts as $district)

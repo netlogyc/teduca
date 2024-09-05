@@ -311,9 +311,9 @@
                                                 @include('common.inc.permanent_province')
 
                                                 <div class="form-group col-md-4">
-                                                    <label for="permanent_address">{{ __('field_address') }}</label>
+                                                    <label for="permanent_address">{{ __('field_address') }}<span>*</span></label>
                                                     <input type="text" class="form-control" name="permanent_address"
-                                                        id="permanent_address" value="{{ old('permanent_address') }}">
+                                                        id="permanent_address" value="{{ old('permanent_address') }}" required> 
 
                                                     <div class="invalid-feedback">
                                                         {{ __('required_field') }} {{ __('field_address') }}
