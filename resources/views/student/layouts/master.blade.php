@@ -196,7 +196,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
                                 <img src="{{ asset('uploads/student/'.Auth::user()->photo) }}" class="img-radius" alt="User Profile" @if(Auth::user()->gender == 1) onerror="this.src='{{ asset('dashboard/images/user/avatar-2.jpg') }}';" @else  onerror="this.src='{{ asset('dashboard/images/user/avatar-1.jpg') }}';" @endif>
-                                <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
+                                <span>{{ Auth::user()->first_name }} {{ Auth::user()->second_name }} {{ Auth::user()->last_name }} {{ Auth::user()->second_surname }}</span>
 
                                 <a href="javascript:void(0);" class="dud-logout" href="{{ route('student.logout') }}"
                                    onclick="event.preventDefault();

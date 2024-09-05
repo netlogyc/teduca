@@ -31,7 +31,7 @@
         <fieldset class="row gx-2 scheduler-border">
         <legend>{{ __('tab_profile_info') }}</legend>
         <p><mark class="text-primary">{{ __('field_student_id') }}:</mark> #{{ $row->student_id }}</p><hr/>
-        <p><mark class="text-primary">{{ __('field_name') }}:</mark> {{ $row->first_name }} {{ $row->last_name }}</p><hr/>
+        <p><mark class="text-primary">{{ __('field_name') }}:</mark> {{ $row->first_name }} {{ $row->second_name }} {{ $row->last_name }} {{ $row->second_surname }}</p><hr/>
         <p><mark class="text-primary">{{ __('field_father_name') }}:</mark> {{ $row->father_name }}</p><hr/>
         <p><mark class="text-primary">{{ __('field_mother_name') }}:</mark> {{ $row->mother_name }}</p><hr/>
 
