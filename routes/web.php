@@ -481,3 +481,16 @@ Route::middleware(['auth:student', 'XSS'])->prefix('student')->name('student.')-
     //change prorgram
     Route::post('/login-with-program','ChangeProgramController@loginWithProgram')->name('login.with.program');
 });
+
+// Student Dashboard Routes
+Route::middleware(['XSS'])->prefix('registration')->name('registration.')->namespace('registration')->group(function () {
+    //rutas de preregistro
+    Route::get('new/preregistration', 'PreregistrationController@index')->name('preregistration.index');
+    Route::post('store/preregistration', 'PreregistrationController@store')->name('preregistration.store');
+    //rutas de registro
+    Route::get('register/{id}', 'RegistrationController@index')->name('registration.index');
+    Route::post('register', 'RegistrationController@store')->name('registration.store');
+    //rutas de entrevista
+    Route::get('interview/{id}', 'InterviewController@index')->name('interview.index');
+    Route::post('store/interview', 'InterviewController@store')->name('interview.store');
+});

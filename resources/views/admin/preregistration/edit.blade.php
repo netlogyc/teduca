@@ -22,8 +22,12 @@
                                     <label for="status">{{ __('field_status') }} <span>*</span></label>
                                     <select class="form-control" name="status" id="status" required>
                                         <option value="1" @if($row->status == 1 || $row->status == '' || $row->status == null) selected @endif>{{ __('Preinscrito') }}</option>
-                                        <option value="2" @if($row->status == 2) selected @endif>{{ __('Entrevista') }}</option>
-                                        <option value="3" @if($row->status == 3) selected @endif>{{ __('Aceptado') }}</option>
+                                        <option value="2" @if($row->status == 2) selected @endif>{{ __('Registro') }}</option>
+                                        <option value="3" @if($row->status == 3) selected @endif>{{ __('Entrevista') }}</option>
+                                        <option value="4" @if($row->status == 4) selected @endif>{{ __('Entrevistado') }}</option>
+                                        <option value="5" @if($row->status == 5) selected @endif>{{ __('Matricula financiera') }}</option>
+                                        <option value="6" @if($row->status == 6) selected @endif>{{ __('Aceptado') }}</option>
+                                        <option value="7" @if($row->status == 7) selected @endif>{{ __('Rechazado') }}</option>
                                     </select>
 
                                     <div class="invalid-feedback">

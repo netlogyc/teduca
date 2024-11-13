@@ -60,9 +60,17 @@
                                             @if( $row->status == 1 || $row->status == '' || $row->status == null )
                                             <span class="badge badge-pill badge-primary">{{ __('Preinscrito') }}</span>
                                             @elseif ( $row->status == 2 )
-                                            <span class="badge badge-pill badge-warning">{{ __('Entrevista') }}</span>
+                                            <span class="badge badge-pill badge-secondary">{{ __('Registro') }}</span>
                                             @elseif ( $row->status == 3 )
-                                            <span class="badge badge-pill badge-success">{{ __('Aceptado') }}</span>
+                                            <span class="badge badge-pill badge-warning">{{ __('Entrevista') }}</span>
+                                            @elseif ( $row->status == 4 )
+                                            <span class="badge badge-pill badge-success">{{ __('Entrevistado') }}</span>
+                                            @elseif ( $row->status == 5 )
+                                            <span class="badge badge-pill badge-info">{{ __('Matricula financiera') }}</span>
+                                            @elseif ( $row->status == 6 )
+                                            <span class="badge badge-pill badge-info">{{ __('Aceptado') }}</span>
+                                            @elseif ( $row->status == 7 )
+                                            <span class="badge badge-pill badge-info">{{ __('Rechazado') }}</span>
                                             @endif
                                         </td>
                                         <td>

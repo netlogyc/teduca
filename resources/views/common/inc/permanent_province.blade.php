@@ -28,7 +28,7 @@
     </div>
   </div>
   
-  
+  <script src="{{ asset('dashboard/plugins/jquery/js/jquery.min.js') }}"></script>
   <script type="text/javascript">
   "use strict";
   $("#permanent_province").on('change',function(e){

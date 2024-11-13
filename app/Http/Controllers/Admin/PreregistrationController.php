@@ -34,9 +34,7 @@ class PreregistrationController extends Controller
         $data['path'] = $this->path;
         $data['access'] = $this->access;
         
-        $data['rows'] = Preregistration::orderBy('fecha_de_inters', 'asc')->get();
-        // return $data['rows'];
-        // return $data;
+        $data['rows'] = Preregistration::with('entrevistas','icfes')->orderBy('fecha_de_inters', 'asc')->get();
         return view($this->view.'.index', $data);
     }
     public function show()
@@ -59,12 +57,6 @@ class PreregistrationController extends Controller
 
         Toastr::success(__('Se ha actualizado el estado'), __('msg_success'));
 
-        // if($request->status == 0){
-        //     Toastr::success(__('msg_canceled_successfully'), __('msg_success'));
-        // }
-        // elseif($request->status == 1){
-        //     Toastr::success(__('msg_approve_successfully'), __('msg_success'));
-        // }
 
         return redirect()->back();
     }
